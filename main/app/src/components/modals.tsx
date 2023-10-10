@@ -1,86 +1,52 @@
-import { createComponent } from "./helpers";
+import { createComponent } from "./helper";
 
-export const createModal = (root, modalId, size="large") => {
-  let modal = createComponent("div", {id: modalId, class: "modal"}, null, root);
-    let modalcontent = createComponent("div", {class: `modal-content ${size}`}, null, modal);
-      let modalheader = createComponent("div", {class: "modal-header"}, null, modalcontent);
+export const createModal = (root:any, modalId:any, size="large") => {
+  let modal = createComponent("div", {id: modalId, class: "modal"}, '', root);
+    let modalcontent = createComponent("div", {class: `modal-content ${size}`}, '', modal);
+      let modalheader = createComponent("div", {class: "modal-header"}, '', modalcontent);
         createComponent("span", {class: "close"}, "X", modalheader);
         createComponent("h2", {}, "How to Use", modalheader);
-      let modalbody = createComponent("div", {class: "modal-body"}, null, modalcontent);
+      let modalbody = createComponent("div", {class: "modal-body"}, '', modalcontent);
       createComponent("div", {class: "modal-footer"}, "Thanks for reading", modalcontent);
   root.appendChild(modal);
   return modalbody;
 };
 
-export const addModals = (root, helpLink) => {
+export const addModals = (root:any, helpLink:any) => {
   let helpModal = createModal(root, "helpModal", "small");
     helpModalContent(helpModal, helpLink);
   let settingsModal = createModal(root, "settingsModal");
     settingsModalContent(settingsModal);
-  let mappingsModal = createModal(root, "mappingsModal");
-    mappingModalContent(mappingsModal);
-  let testAnglesModal = createModal(root, "testAnglesModal", "extra-large");
-    testAnglesModalContent(testAnglesModal);
-  let robotCodeModal = createModal(root, "robotCodeModal", "extra-large");
-    robotCodeModalContent(robotCodeModal);
 };
 
 
-export function helpModalContent(root, link) {
+export function helpModalContent(root:any, link:any) {
   createComponent("p", {}, `For detailed instructions, please read the user manual`, root);
-  let userManualLink = createComponent("a", {target: '_blank', href:`https://github.com/LewisTrundle/L4-Individual-Project/blob/develop/src/user_manual.md#${link}`}, null, root);
+  let userManualLink = createComponent("a", {target: '_blank', href:`https://https://github.com/deden3791/L4Project/blob/dev/main/app/src/UserGuide.md#${link}`}, '', root);
   createComponent("button", {}, "User manual", userManualLink);
 }
 
-function settingsModalContent(root) {
-  let buttonsdiv = createComponent("div", {class: "buttons center-buttons"}, null, root);
+function settingsModalContent(root:any) {
+  let buttonsdiv = createComponent("div", {class: "buttons center-buttons"}, '', root);
     sendCodeSlider(buttonsdiv);
     createComponent("button", {id: "mappingsBtn", class: "remove-margin"}, "Select angle to motor mapping", buttonsdiv);
     createComponent("button", {id: "testAnglesBtn", class: "remove-margin"}, "Perform Diagnostic", buttonsdiv);
     createComponent("button", {id: "robotCodeBtn", class: "remove-margin"}, "Robot Code", buttonsdiv);
 };
 
-function sendCodeSlider(root) {
-  let slidercontainer = createComponent("div", {class: "slider-container"}, null, root);
-    let valuecontainer = createComponent("div", {class: "value-container"}, null, slidercontainer);
+function sendCodeSlider(root:any) {
+  let slidercontainer = createComponent("div", {class: "slider-container"}, '', root);
+    let valuecontainer = createComponent("div", {class: "value-container"}, '', slidercontainer);
       createComponent("span", {id: "output"}, "100", valuecontainer);
-    createComponent("input", {type: "range", min:"0", max:"600", value:"100", class:"slider", id:"sendCodeSlider"}, null, slidercontainer);
+    createComponent("input", {type: "range", min:"0", max:"600", value:"100", class:"slider", id:"sendCodeSlider"}, '', slidercontainer);
 };
-
-function mappingModalContent(root) {
-  let buttonsdiv = createComponent("div", {class: "buttons center-buttons"}, null, root);
-    createComponent("button", {id: "tightControl"}, "Tight Mapping", buttonsdiv);
-    createComponent("button", {id: "looseControl"}, "Loose Mapping", buttonsdiv);
-};
-
-function testAnglesModalContent(root) {
-  let buttonsdiv = createComponent("div", {class: "buttons center-buttons"}, null, root);
-    createComponent("button", {onclick: "controller.diagnostic()"}, "Test all angles", buttonsdiv);
-    for (let i = 0; i <= 360; i+=45) {
-      createComponent("button", {onclick: `controller.diagnostic(${i})`, class:"remove-margin"}, `Test ${i} degrees`, buttonsdiv);
-    };
-};
-
-function robotCodeModalContent(root) {
-  let buttonsdiv1 = createComponent("div", {class: "buttons buttons-row"}, null, root);
-    createComponent("button", {id: "uploadCodeBtn"}, "UPLOAD CODE", buttonsdiv1);
-    createComponent("button", {id: "getCodeBtn"}, "GET DEVICE CODE", buttonsdiv1);
-    createComponent("button", {id: "resetCodeBtn"}, "RESET CODE", buttonsdiv1);
-  let buttonsdiv2 = createComponent("div", {class: "buttons buttons-row"}, null, root);
-    createComponent("p", {id: "codeToUpload"}, "THERE IS NO CODE TO UPLOAD", buttonsdiv2);
-    createComponent("p", {id: "codeOnRobot"}, "hello", buttonsdiv2);
-};
-
 
 export function openCloseModal() {
   const modals = {
     help: {modal: "helpModal", button: "helpBtn"},
     settings: {modal: "settingsModal", button: "settingsBtn"},
-    mappings: {modal: "mappingsModal", button: "mappingsBtn"},
-    testAngles: {modal: "testAnglesModal", button: "testAnglesBtn"},
-    robotCode: {modal: "robotCodeModal", button: "robotCodeBtn"}
   };
-  var modalElements = [];
+  const modalElements: HTMLElement[] = [];
   var span = document.getElementsByClassName("close") as HTMLCollectionOf<HTMLElement>;
   const settingsModal = document.getElementById("settingsModal");
 

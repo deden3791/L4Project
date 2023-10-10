@@ -1,8 +1,8 @@
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition'
 import useClipboard from "react-use-clipboard";
 import {useState} from "react";
-import "./App.css"
-import TextToSpeech from './TextToSpeech';
+import "./styles/App.css"
+import TextToSpeech from './classes/TextToSpeech';
 
 const connect = async () => {
     const device = await navigator.bluetooth.requestDevice();
