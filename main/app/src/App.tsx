@@ -1,61 +1,17 @@
-import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition'
-import useClipboard from "react-use-clipboard";
-import {useState} from "react";
-import "./styles/App.css"
-import TextToSpeech from './classes/TextToSpeech';
+import * as React from 'react';
+import './styles/App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-const connect = async () => {
-    const device = await navigator.bluetooth.requestDevice();
-    const server = await device.gatt?.connect();
-  };
+import HomePage from './pages/home';
+import CaptionsPage from './pages/captions';
 
-
-const App = () => {
-    // const [textToCopy, setTextToCopy] = useState();
-    // const [isCopied, setCopied] = useClipboard(textToCopy, {
-    //     successDuration:1000
-    // });
-
-    const startListening = () => SpeechRecognition.startListening({ continuous: true, language: 'en-IN' });
-    const {
-        transcript,
-        listening,
-        resetTranscript,
-        browserSupportsSpeechRecognition
-      } = useSpeechRecognition();
-
-    if (!browserSupportsSpeechRecognition) {
-        return null
-    }
-    return (
-        <>
-            <div className="container">
-                <h2>Speech to Text Converter</h2>
-                <br/>
-                <p>A React hook that converts speech from the microphone to text and makes it available to your React
-                    components.</p>
-
-                <div className="main-content">
-                    {transcript}
-                </div>
-
-                <div className="btn-style">
-
-                    {/* <button onClick={setCopied}>
-                        {isCopied ? 'Copied!' : 'Copy to clipboard'}
-                    </button> */}
-                    <p>Microphone: {listening ? 'on' : 'off'}</p>
-                    <button onClick={startListening}>Start Listening</button>
-                    <button onClick={SpeechRecognition.stopListening}>Stop Listening</button>
-                    <button onClick={resetTranscript}>Reset</button>
-                    <TextToSpeech text={transcript} />
-
-                </div>
-
-            </div>
-
-        </>
-    );
-};
+const App = () => (
+  <Router>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/captions" element={<CaptionsPage />} />
+    </Routes>
+  </Router>
+);
 
 export default App;
