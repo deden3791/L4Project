@@ -17,38 +17,44 @@ const CaptionsPage = () => {
     //     successDuration:1000
     // });
 
-    const startListening = () => SpeechRecognition.startListening({ continuous: true, language: 'en-IN' });
+    const startListening = () => {
+        SpeechRecognition.startListening({ continuous: true, language: 'en-IN' });
+        console.log(SpeechRecognition);
+    }
     const {
         transcript,
         listening,
         resetTranscript,
         browserSupportsSpeechRecognition
       } = useSpeechRecognition();
+    console.log("hi",   transcript, listening, resetTranscript, browserSupportsSpeechRecognition)
 
     if (!browserSupportsSpeechRecognition) {
         return null
     }
     return (
         <>
-            <div className="container">
+            <div className="pageBody">
                 <p>Microphone: {listening ? 'on' : 'off'}</p>
-
-                <div className="main-content">
-                    {transcript}
+                
+                <div className='transcript-box'>
+                    <div className='transcript-text'>
+                        {transcript}
+                    </div>
                 </div>
 
-                <div className="btn-style">
+                <div className="button-container">
 
                     {/* <button onClick={setCopied}>
                         {isCopied ? 'Copied!' : 'Copy to clipboard'}
                     </button> */}
                     
-                    <button onClick={startListening}>Start Listening</button>
-                    <button onClick={SpeechRecognition.stopListening}>Stop Listening</button>
-                    <button onClick={resetTranscript}>Reset</button>
-                    <TextToSpeech text={transcript} />
-
+                    <button className="big-button" onClick={startListening}>Start Listening</button>
+                    <button className="big-button" onClick={SpeechRecognition.stopListening}>Stop Listening</button>
+                    <button className="big-button" onClick={resetTranscript}>Reset</button>
                 </div>
+                
+                <TextToSpeech text={transcript} />
 
             </div>
 

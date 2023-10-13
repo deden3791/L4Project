@@ -3,7 +3,7 @@ import Header from "../components/header";
 
 const withLayout = (Page: React.ComponentType, title: string, showBackButton:boolean) => {
   return () => (
-    <div>
+    <div className='background'>
       <Header title={title} showBackButton={showBackButton}/>
       <Page />
       {/* <Footer /> */}

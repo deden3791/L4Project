@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "../styles/styles.css";
 
 interface TextToSpeechProps {
   text: string;
@@ -129,10 +130,11 @@ const TextToSpeech: React.FC<TextToSpeechProps> = ({ text }) => {
       </label>
 
       <br />
-
-      <button onClick={handlePlay}>{isPaused ? "Resume" : "Play"}</button>
-      <button onClick={handlePause}>Pause</button>
-      <button onClick={handleStop}>Stop</button>
+      <div className="button-container">
+        <button className="big-button" onClick={handlePlay}>{isPaused ? "Resume" : "Play"}</button>
+        <button className="big-button" onClick={handlePause}>Pause</button>
+        <button className="big-button" onClick={handleStop}>Stop</button>
+      </div>
     </div>
   );
 };

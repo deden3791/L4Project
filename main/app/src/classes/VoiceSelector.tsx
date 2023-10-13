@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import "../styles/styles.css";
 
 type VoiceSelectorProps = {
   selected: number;
