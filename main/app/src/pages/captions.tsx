@@ -19,7 +19,8 @@ const CaptionsPage = () => {
 
     const startListening = () => {
         SpeechRecognition.startListening({ continuous: true, language: 'en-IN' });
-        console.log(SpeechRecognition);
+        console.log(SpeechRecognition.startListening);
+        console.log(SpeechRecognition.getRecognition);
     }
     const {
         transcript,
@@ -27,7 +28,6 @@ const CaptionsPage = () => {
         resetTranscript,
         browserSupportsSpeechRecognition
       } = useSpeechRecognition();
-    console.log("hi",   transcript, listening, resetTranscript, browserSupportsSpeechRecognition)
 
     if (!browserSupportsSpeechRecognition) {
         return null
@@ -49,9 +49,9 @@ const CaptionsPage = () => {
                         {isCopied ? 'Copied!' : 'Copy to clipboard'}
                     </button> */}
                     
-                    <button className="big-button" onClick={startListening}>Start Listening</button>
-                    <button className="big-button" onClick={SpeechRecognition.stopListening}>Stop Listening</button>
-                    <button className="big-button" onClick={resetTranscript}>Reset</button>
+                    <button className="small-button" onClick={startListening}>Start Listening</button>
+                    <button className="small-button" onClick={SpeechRecognition.stopListening}>Stop Listening</button>
+                    <button className="small-button" onClick={resetTranscript}>Reset</button>
                 </div>
                 
                 <TextToSpeech text={transcript} />

@@ -131,9 +131,9 @@ const TextToSpeech: React.FC<TextToSpeechProps> = ({ text }) => {
 
       <br />
       <div className="button-container">
-        <button className="big-button" onClick={handlePlay}>{isPaused ? "Resume" : "Play"}</button>
-        <button className="big-button" onClick={handlePause}>Pause</button>
-        <button className="big-button" onClick={handleStop}>Stop</button>
+        <button className="small-button" onClick={handlePlay}>{isPaused ? "Resume" : "Play"}</button>
+        <button className="small-button" onClick={handlePause}>Pause</button>
+        <button className="small-button" onClick={handleStop}>Stop</button>
       </div>
     </div>
   );
