@@ -91,6 +91,21 @@ border-color: #c49175;
 width: fit-content;
 }
 
+.popup .small-button {
+  display: flex;
+  color: #c49175;
+  background-color: transparent;
+  font-family: "Gothic A1-Bold", Helvetica;
+font-size: 20px;  
+font-weight: 700;
+letter-spacing: 0;
+line-height: normal;
+text-align: center;
+border-radius: 30px;
+border-color: #c49175;
+width: fit-content;
+}
+
 .transcript-box {
   border: 2px solid;
   border-color: #c49175;

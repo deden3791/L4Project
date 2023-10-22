@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/header';
 import "../styles/styles.css";
-import AudioCapturePlayback from '../classes/AudioPlayback';
-import Popup from '../components/Popup'; 
 // import { Host, Connector } from "@espruino-tools/peer";
 
 // let host = new Host();

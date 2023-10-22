@@ -5,11 +5,6 @@ import withLayout from './layout';
 import "../styles/App.css"
 import TextToSpeech from '../classes/TextToSpeech';
 
-const connect = async () => {
-    const device = await navigator.bluetooth.requestDevice();
-    const server = await device.gatt?.connect();
-  };
-
 
 const CaptionsPage = () => {
     // const [textToCopy, setTextToCopy] = useState();
@@ -19,8 +14,6 @@ const CaptionsPage = () => {
 
     const startListening = () => {
         SpeechRecognition.startListening({ continuous: true, language: 'en-IN' });
-        console.log(SpeechRecognition.startListening);
-        console.log(SpeechRecognition.getRecognition);
     }
     const {
         transcript,

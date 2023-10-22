@@ -20,9 +20,12 @@ const TextToSpeech: React.FC<TextToSpeechProps> = ({ text }) => {
 
     setUtterance(u);
     setVoice(voices[0]);
+    console.log(text)
 
     return () => {
-      synth.cancel();
+      if (text == '') {
+        synth.cancel();
+      }
     };
   }, [text]);
 

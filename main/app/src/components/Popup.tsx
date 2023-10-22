@@ -1,4 +1,6 @@
 import React from 'react';
+import AudioCapturePlayback from '../classes/AudioPlayback';
+import "../styles/styles.css";
 
 interface PopupProps {
   onClose: () => void;
@@ -8,8 +10,9 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
   return (
     <div className="popup">
       <div className="popup-content">
-        <button onClick={onClose}>Close</button>
-        <p>This is a pop-up window!</p>
+        <button className='small-button' onClick={onClose}>Close</button>
+        <p></p>
+        <AudioCapturePlayback />
       </div>
     </div>
   );
