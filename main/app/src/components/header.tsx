@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import "../styles/styles.css";
+import Popup from '../components/Popup'; 
 
 interface HeaderProps {
   title: string;
@@ -8,7 +9,15 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ title, showBackButton = false }) => {
+
   let navigate = useNavigate();
+
+  const [showPopup, setShowPopup] = useState(false);
+
+  const togglePopup = () => {
+    setShowPopup(!showPopup);
+  };
+
   return (
     <div className="header">
       <div className='back-button-container'>
@@ -21,15 +30,13 @@ const Header: React.FC<HeaderProps> = ({ title, showBackButton = false }) => {
       </div>
       {/* <button className="settings-button" >Settings</button> */}
       <div className='setting-container'>
-        <img className="settings" alt="Settings" src={require("../images/settings.png")}/>
+        <button className='settings-button' onClick={togglePopup}>
+          <img className="settings" alt="Settings" src={require("../images/settings.png")}/>
+        </button>
+        {showPopup && <Popup onClose={togglePopup} />}
       </div>
     </div>
   );
 };
 
 export default Header;
-
-{/* <header className="header">
-          <div className="title">Earbud Controller</div>
-          <img className="settings" alt="Settings" src="settings-1.png" />
-        </header> */}
