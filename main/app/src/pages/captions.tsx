@@ -3,7 +3,7 @@ import useClipboard from "react-use-clipboard";
 import {useState} from "react";
 import withLayout from './layout';
 import "../styles/App.css"
-import TextToSpeech from '../classes/TextToSpeech';
+import TextToSpeech from '../components/TextToSpeech';
 
 
 const CaptionsPage = () => {

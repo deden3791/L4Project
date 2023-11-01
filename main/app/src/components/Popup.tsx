@@ -1,5 +1,5 @@
 import React from 'react';
-import AudioCapturePlayback from '../classes/AudioPlayback';
+import AudioCapturePlayback from './AudioPlayback';
 import "../styles/styles.css";
 
 interface PopupProps {
