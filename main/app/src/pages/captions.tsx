@@ -7,10 +7,6 @@ import TextToSpeech from '../classes/TextToSpeech';
 
 
 const CaptionsPage = () => {
-    // const [textToCopy, setTextToCopy] = useState();
-    // const [isCopied, setCopied] = useClipboard(textToCopy, {
-    //     successDuration:1000
-    // });
 
     const startListening = () => {
         SpeechRecognition.startListening({ continuous: true, language: 'en-IN' });
@@ -37,11 +33,6 @@ const CaptionsPage = () => {
                 </div>
 
                 <div className="button-container">
-
-                    {/* <button onClick={setCopied}>
-                        {isCopied ? 'Copied!' : 'Copy to clipboard'}
-                    </button> */}
-                    
                     <button className="small-button" onClick={startListening}>Start Listening</button>
                     <button className="small-button" onClick={SpeechRecognition.stopListening}>Stop Listening</button>
                     <button className="small-button" onClick={resetTranscript}>Reset</button>

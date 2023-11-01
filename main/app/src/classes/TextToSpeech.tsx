@@ -5,7 +5,7 @@ interface TextToSpeechProps {
   text: string;
 }
 
-const TextToSpeech: React.FC<TextToSpeechProps> = ({ text }) => {
+const TextToSpeech = ({ text }: TextToSpeechProps) => {
   const [isPaused, setIsPaused] = useState<boolean>(false);
   const [utterance, setUtterance] = useState<SpeechSynthesisUtterance | null>(null);
   const [voice, setVoice] = useState<SpeechSynthesisVoice | null>(null);
@@ -29,12 +29,24 @@ const TextToSpeech: React.FC<TextToSpeechProps> = ({ text }) => {
     };
   }, [text]);
 
+  // useEffect(() => {
+  //   const synth = window.speechSynthesis;
+  //   if (utterance) {
+  //     utterance.voice = voice;
+  //     utterance.pitch = pitch;
+  //     utterance.rate = rate;
+  //     utterance.volume = volume;
+  //     synth.speak(utterance);
+  //   }
+  // }, [voice, pitch, rate, volume]);
+
   const handlePlay = () => {
     const synth = window.speechSynthesis;
 
     if (isPaused) {
       synth.resume();
-    } else if (utterance && voice) {
+    }
+    if (utterance && voice) {
       utterance.voice = voice;
       utterance.pitch = pitch;
       utterance.rate = rate;

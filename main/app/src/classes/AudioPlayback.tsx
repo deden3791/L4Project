@@ -1,81 +1,48 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import "../styles/styles.css";
+import { useSound } from 'use-sound';
 
-class AudioCapturePlayback extends Component {
-  state = {
-    audioContext: new (window.AudioContext)(),
-    microphoneStream: null,
-    microphoneSource: null,
-    speakerDestination: null,
-    isAudioPlaying: false,
-  };
+const AudioCapturePlayback = () => {
+  const [isAudioPlaying, setIsPlaying] = useState(false);
+  const [microphoneStream, setMicrophoneStream] = useState<MediaStream | null>(null);
 
-  toggleAudioPlayback = async () => {
-    const { audioContext, microphoneSource, speakerDestination, isAudioPlaying } = this.state;
+  const audioContext = new AudioContext();
+  const destination = audioContext.destination;
+  let microphoneSourceNode: MediaStreamAudioSourceNode | null = null;
 
-    if (isAudioPlaying) {
-      this.cleanupAudio();
-    } else {
-      try {
-        if (!microphoneSource) {
-          const microphoneStream = await navigator.mediaDevices.getUserMedia({ audio: true });
-          const microphoneSource = audioContext.createMediaStreamSource(microphoneStream);
-          const speakerDestination = audioContext.destination;
-  
-          microphoneSource.connect(speakerDestination);
-  
-          this.setState({
-            microphoneStream,
-            microphoneSource,
-            speakerDestination,
-          });
+  const handlePlayAudio = async () => {
+    try {
+      if (!isAudioPlaying) {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        setMicrophoneStream(stream);
+        microphoneSourceNode = audioContext.createMediaStreamSource(stream);
+        microphoneSourceNode.connect(destination);
+      } else {
+        if (microphoneSourceNode) {
+          microphoneSourceNode.disconnect();
         }
-      } catch (error) {
-        console.error('Error setting up audio:', error);
+        if (microphoneStream) {
+          microphoneStream.getTracks().forEach((track) => {
+            track.stop();
+          });
+          setMicrophoneStream(null);
+        }
       }
+      setIsPlaying(!isAudioPlaying);
+    } catch (error) {
+      console.error('Error accessing the microphone:', error);
     }
-
-    this.setState({
-      isAudioPlaying: !isAudioPlaying,
-    });
   };
 
-  cleanupAudio = () => {
-    const { audioContext, microphoneSource, microphoneStream } = this.state;
-
-    if (microphoneSource) {
-      (microphoneSource as AudioNode).disconnect();
-    }
-
-    if (microphoneStream) {
-      const tracks = (microphoneStream as MediaStream).getTracks();
-      if (tracks.length > 0) {
-        tracks[0].stop();
-      }
-    }
-
-    if (audioContext.state === 'running') {
-      audioContext.close();
-    }
-
-    this.setState({
-      microphoneStream: null,
-      microphoneSource: null,
-      isAudioPlaying: false,
-    });
-  };
-
-  render() {
-    const { isAudioPlaying } = this.state;
-    return (
-      <div>
-        <p>Microphone input is {isAudioPlaying ? 'on' : 'off'}.</p>
-        <button onClick={this.toggleAudioPlayback}>
-          {isAudioPlaying ? 'Turn Off Audio' : 'Turn On Audio'}
+  return (
+    <div>
+      <div className="button-container">
+        <button className="small-button" onClick={handlePlayAudio}>
+          {isAudioPlaying ? 'Stop Microphone' : 'Start Microphone'}
         </button>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default AudioCapturePlayback;
