@@ -1,8 +1,6 @@
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition'
-import useClipboard from "react-use-clipboard";
-import {useState} from "react";
 import withLayout from './layout';
-import "../styles/App.css"
+import "../styles/styles.css"
 import TextToSpeech from '../components/TextToSpeech';
 
 

@@ -13,10 +13,13 @@
     "@types/react-dom": "^18.2.10",
     "@types/react-router": "^5.1.20",
     "@types/react-router-dom": "^5.3.3",
+    "@typescript-eslint/eslint-plugin": "^6.9.1",
+    "@typescript-eslint/parser": "^6.9.1",
+    "eslint": "^8.52.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router": "^6.16.0",
-    "react-scripts": "^3.0.1",
+    "react-scripts": "^5.0.1",
     "react-speech": "^1.0.2",
     "react-speech-recognition": "^3.10.0",
     "react-use-clipboard": "^1.0.9",
@@ -30,12 +33,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [
