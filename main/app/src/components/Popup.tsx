@@ -12,7 +12,6 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
       <div className="popup-content">
         <button className='small-button' onClick={onClose}>Close</button>
         <p></p>
-        <AudioCapturePlayback />
       </div>
     </div>
   );

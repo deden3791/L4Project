@@ -93,9 +93,9 @@ const TextToSpeech = ({ text }: TextToSpeechProps) => {
 
   return (
     <div>
-      <label>
-        Voice:
-        <select value={voice?.name || ""} onChange={handleVoiceChange}>
+      <label className="small-text">
+        Voice: 
+        <select value={voice?.name || ""} onChange={handleVoiceChange} className="small-button">
           {window.speechSynthesis.getVoices().map((voice) => (
             <option key={voice.name} value={voice.name}>
               {voice.name}
@@ -106,7 +106,7 @@ const TextToSpeech = ({ text }: TextToSpeechProps) => {
 
       <br />
 
-      <label>
+      <label className="small-text">
         Pitch:
         <input
           type="range"
@@ -120,7 +120,7 @@ const TextToSpeech = ({ text }: TextToSpeechProps) => {
 
       <br />
 
-      <label>
+      <label className="small-text">
         Speed:
         <input
           type="range"
@@ -132,7 +132,7 @@ const TextToSpeech = ({ text }: TextToSpeechProps) => {
         />
       </label>
       <br />
-      <label>
+      <label className="small-text">
         Volume:
         <input
           type="range"

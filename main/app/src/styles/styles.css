@@ -59,6 +59,7 @@
 .pageBody .button-container {
   display: flex;
   height: 30px;
+  padding: 10px;  
 }
 
 .pageBody .big-button {
@@ -76,8 +77,7 @@
   width: fit-content;
 }
 
-.pageBody .small-button {
-  display: flex;
+.pageBody .small-button { 
   color: #c49175;
   background-color: transparent;
   font-family: "Gothic A1-Bold", Helvetica;
@@ -118,6 +118,15 @@ width: fit-content;
 .transcript-box .transcript-text {
   font-family: "Gothic A1-Bold", Helvetica;
   font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+  color: #c49175;
+}
+
+.small-text {
+  font-family: "Gothic A1-Bold", Helvetica;
+  font-size: 18px;
   font-weight: 700;
   letter-spacing: 0;
   line-height: normal;
