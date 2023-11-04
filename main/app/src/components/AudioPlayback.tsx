@@ -7,12 +7,13 @@ const AudioCapturePlayback = () => {
   const [audioContext, setAudioContext] = useState<AudioContext | null>(null);
   const [microphoneSourceNode, setMicrophoneSourceNode] = useState<MediaStreamAudioSourceNode | null>(null);
   const [gainNode, setGainNode] = useState<GainNode | null>(null);
-  const [volume, setVolume] = useState(2.0); 
+  const [filterNode, setFilterNode] = useState<BiquadFilterNode | null>(null);
+  const [volume, setVolume] = useState(2.0);
 
   useEffect(() => {
     if (audioContext) {
       if (gainNode) {
-        gainNode.gain.value = volume; // Set the volume
+        gainNode.gain.value = volume;
       }
     }
   }, [audioContext, gainNode, volume]);
@@ -27,13 +28,23 @@ const AudioCapturePlayback = () => {
       if (!isAudioPlaying) {
         const context = new AudioContext();
         setAudioContext(context);
+
         const gain = context.createGain();
         setGainNode(gain);
+
+        const filter = context.createBiquadFilter();
+        filter.type = 'lowpass';
+        filter.frequency.value = 5000;
+        setFilterNode(filter);
+
         const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
         setMicrophoneStream(stream);
+
         const sourceNode = context.createMediaStreamSource(stream);
         setMicrophoneSourceNode(sourceNode);
-        sourceNode.connect(gain);
+
+        sourceNode.connect(filter);
+        filter.connect(gain);
         gain.connect(context.destination);
       } else {
         if (microphoneSourceNode) {
@@ -52,6 +63,10 @@ const AudioCapturePlayback = () => {
         if (gainNode) {
           gainNode.disconnect();
           setGainNode(null);
+        }
+        if (filterNode) {
+          filterNode.disconnect();
+          setFilterNode(null);
         }
       }
       setIsPlaying(!isAudioPlaying);
