@@ -7,7 +7,7 @@ const AudioCapturePlayback = () => {
   const [audioContext, setAudioContext] = useState<AudioContext | null>(null);
   const [microphoneSourceNode, setMicrophoneSourceNode] = useState<MediaStreamAudioSourceNode | null>(null);
   const [gainNode, setGainNode] = useState<GainNode | null>(null);
-  const [volume, setVolume] = useState(0.5); // Initial volume value
+  const [volume, setVolume] = useState(2.0); 
 
   useEffect(() => {
     if (audioContext) {
