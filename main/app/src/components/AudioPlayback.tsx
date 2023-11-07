@@ -32,7 +32,9 @@ const AudioCapturePlayback = () => {
         const gain = context.createGain();
         setGainNode(gain);
 
-        const filter = context.createBiquadFilter();
+        const filter = context.createBiquadFilter(); 
+        // apply low-pass filtering to the audio data before it is played back 
+        // example of DSP processing
         filter.type = 'lowpass';
         filter.frequency.value = 5000;
         setFilterNode(filter);

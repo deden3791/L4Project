@@ -9,8 +9,8 @@ import AudioCapturePlayback from '../components/AudioPlayback';
 
 const HomePage = () => {
 
-   // const navigate = useNavigate();
-  // const handleClick = () => navigate('/captions');
+  const navigate = useNavigate();
+  const handleClick = () => navigate('/captions');
   
   const [listening, setListening] = useState(false);
 
