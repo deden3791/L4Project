@@ -1,50 +1,46 @@
-import React, { Component, useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PopupAlert from './PopupAlert';
-// import soundfile from '../audios/UKAmbulance.mp3';
 
-const AudioAnalysisApp = () => {
+const AudioAnalyzer = () => {
+
   const [showPopup, setShowPopup] = useState(false);
 
   const togglePopup = () => {
     setShowPopup(!showPopup);
   };
 
-//   const [audioContext, setAudioContext] = useState<AudioContext | null>(null);
+  const [audioData, setAudioData] = useState<Uint8Array | null>(null);
 
-//   useEffect(() => {
-//     const analyzeAudio = async () => {
-//       const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)();
-//       // const audioData = await soundfile.arrayBuffer();
-//       // const audioBuffer = await audioContext.decodeAudioData(audioData);
-
-//       const analyser = audioContext.createAnalyser();
-//       const source = audioContext.createBufferSource();
-//       source.buffer = audioBuffer;
-//       source.connect(analyser);
-//       analyser.connect(audioContext.destination);
-
-//       source.start(0);
-      
-//       analyser.fftSize = 256;
-//       const bufferLength = analyser.frequencyBinCount;
-//       const dataArray = new Uint8Array(bufferLength);
-//       analyser.getByteFrequencyData(dataArray);
-
-//       const duration = audioBuffer.duration;
-
-//       console.log(duration, dataArray, bufferLength);
-//     };
-
-//     analyzeAudio();
-//   }, []);
+  useEffect(() => {
+    const loadAudioFile = async () => {
+      try {
+        const response = await fetch('../audios/UKAmbulance.mp3');
+        if (response.ok) {
+          const arrayBuffer = await response.arrayBuffer();
+          const uint8Array = new Uint8Array(arrayBuffer);
+          setAudioData(uint8Array);
+        } else {
+          console.error('Failed to fetch the audio file');
+        }
+      } catch (error) {
+        console.error('Error loading audio file:', error);
+      }
+    };
+    loadAudioFile();
+  }, []); // The empty dependency array ensures that this effect runs only once
 
   return (
     <div>
-      <button onClick={togglePopup}>
-      </button>
-      {showPopup && <PopupAlert onClose={togglePopup} />}
+      {/* <button onClick={togglePopup}>
+        </button>
+        {showPopup && <PopupAlert onClose={togglePopup} />} */}
+      {audioData && (
+        <div>
+          Audio Data Loaded: {audioData.length} bytes
+        </div>
+      )}
     </div>
   );
 };
 
-export default AudioAnalysisApp;
+export default AudioAnalyzer;
