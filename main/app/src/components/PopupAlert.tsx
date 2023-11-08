@@ -5,7 +5,7 @@ interface PopupProps {
   onClose: () => void;
 }
 
-const Popup: React.FC<PopupProps> = ({ onClose }) => {
+const PopupAlert: React.FC<PopupProps> = ({ onClose }) => {
   return (
     <div className="popup">
       <div className="popup-content">
@@ -16,4 +16,4 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
   );
 };
 
-export default Popup;
+export default PopupAlert;

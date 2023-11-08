@@ -6,6 +6,7 @@ import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognitio
 import "../styles/styles.css";
 import TextToSpeech from '../components/TextToSpeech';
 import AudioCapturePlayback from '../components/AudioPlayback';
+import AudioAnalysis from '../components/AudioAnalysis'
 
 const HomePage = () => {
 
@@ -56,6 +57,7 @@ const HomePage = () => {
         <TextToSpeech text={transcript} />
 
         <AudioCapturePlayback />
+        <AudioAnalysis />
       </div>
     </div>
   );
