@@ -1,22 +1,13 @@
-.root {
-    width: '100%';
-}
-
 .header {
   display: flex;
   flex-direction: row;
   background-color: #c49175;
   height: 90px;
-  width: '100%';
+  width: 100%;
   justify-content: space-between;
 }
 
-.header .headerContainer {
-    width: '50%';
-}
-
 .header .title {
-  display: flex;
   color: #f2ebee;
   font-family: "Gothic A1-Bold", Helvetica;
   font-size: 41px;
@@ -27,9 +18,9 @@
 }
 
 .header .setting-container {
-    width: 98px;
-    padding-right: 10px;
-    background-color: "red";
+  width: 98px;
+  padding-right: 10px;
+  background-color: "red";
 }
 
 .header .settings {
@@ -39,8 +30,8 @@
 }
 
 .header .back-button-container {
-    width: 98px;
-    padding-left: 10px;
+  width: 98px;
+  padding-left: 10px;
 }
 
 .header .back-button {
@@ -50,10 +41,9 @@
 }
 
 .pageBody {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    padding: 30px;
+  justify-content: center;
+  flex-direction: column;
+  padding: 30px;
 }
 
 .pageBody .button-container {
@@ -63,11 +53,26 @@
 }
 
 .pageBody .big-button {
-    display: flex;
-    color: #c49175;
-    background-color: transparent;
-    font-family: "Gothic A1-Bold", Helvetica;
+  display: flex;
+  color: #c49175;
+  background-color: transparent;
+  font-family: "Gothic A1-Bold", Helvetica;
   font-size: 40px;  
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+  text-align: center;
+  border-radius: 30px;
+  border-color: #c49175;
+  width: fit-content;
+  margin: 10px 0;
+}
+
+.pageBody .small-button { 
+  color: #c49175;
+  background-color: transparent;
+  font-family: "Gothic A1-Bold", Helvetica;
+  font-size: 20px;  
   font-weight: 700;
   letter-spacing: 0;
   line-height: normal;
@@ -77,50 +82,32 @@
   width: fit-content;
 }
 
-.pageBody .small-button { 
-  color: #c49175;
-  background-color: transparent;
-  font-family: "Gothic A1-Bold", Helvetica;
-font-size: 20px;  
-font-weight: 700;
-letter-spacing: 0;
-line-height: normal;
-text-align: center;
-border-radius: 30px;
-border-color: #c49175;
-width: fit-content;
-}
-
 .popup .small-button {
   display: flex;
   color: #c49175;
   background-color: transparent;
   font-family: "Gothic A1-Bold", Helvetica;
-font-size: 20px;  
-font-weight: 700;
-letter-spacing: 0;
-line-height: normal;
-text-align: center;
-border-radius: 30px;
-border-color: #c49175;
-width: fit-content;
+  font-size: 20px;  
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+  text-align: center;
+  border-radius: 30px;
+  border-color: #c49175;
+  width: fit-content;
 }
 
-.transcript-box {
+.text-box {
   border: 2px solid;
   border-color: #c49175;
   border-radius: 30px;
   height: 255px;
   width: 718px;
   padding: 1%;
-}
-
-.transcript-box .transcript-text {
   font-family: "Gothic A1-Bold", Helvetica;
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 0;
-  line-height: normal;
   color: #c49175;
 }
 

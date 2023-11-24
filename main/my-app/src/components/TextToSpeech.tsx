@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../styles/styles.css";
 
 interface TextToSpeechProps {
-  text: string;
+  text: any;
 }
 
 const TextToSpeech = ({ text }: TextToSpeechProps) => {

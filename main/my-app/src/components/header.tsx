@@ -25,9 +25,7 @@ const Header: React.FC<HeaderProps> = ({ title, showBackButton = false }) => {
           <img className="back-button" onClick={() => navigate(-1)} src={require("../images/backButton.png")}/>
         )}
       </div>
-      <div className="headerContainer">
-        <h1 className="title">{title}</h1>
-      </div>
+      <h1 className="title">{title}</h1>
       <div className='setting-container'>
         <button className='settings-button' onClick={togglePopup}>
           <img className="settings" alt="Settings" src={require("../images/settings.png")}/>
