@@ -6,21 +6,38 @@ const AudioCapturePlayback = () => {
   const [microphoneStream, setMicrophoneStream] = useState<MediaStream | null>(null);
   const [audioContext, setAudioContext] = useState<AudioContext | null>(null);
   const [microphoneSourceNode, setMicrophoneSourceNode] = useState<MediaStreamAudioSourceNode | null>(null);
-  const [gainNode, setGainNode] = useState<GainNode | null>(null);
+  const [filterType, setFilterType] = useState<BiquadFilterType>('lowpass');
+  const [gain, setGain] = useState(2.0);
+  const [QValue, setQValue] = useState(10.0);
+  const [frequency, setFrequency] = useState(20000);
   const [filterNode, setFilterNode] = useState<BiquadFilterNode | null>(null);
   const [volume, setVolume] = useState(2.0);
 
   useEffect(() => {
-    if (audioContext) {
-      if (gainNode) {
-        gainNode.gain.value = volume;
-      }
+    if (audioContext && filterNode) {
+      filterNode.type = filterType;
+      filterNode.frequency.value = frequency;
+      filterNode.Q.value = QValue;
+      filterNode.gain.value = gain;
     }
-  }, [audioContext, gainNode, volume]);
+  }, [audioContext, filterNode, filterType, frequency, QValue, gain]);  
 
-  const handleVolumeChange = (event: any) => {
-    const newVolume = parseFloat(event.target.value);
-    setVolume(newVolume);
+  const handleFilterChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedFilter = event.target.value as BiquadFilterType;
+    setFilterType(selectedFilter);
+  };
+
+  const handleGainChange = (event: any) => {
+    const newGain = parseFloat(event.target.value);
+    setGain(newGain);
+  };
+  const handleFrequencyChange = (event: any) => {
+    const newFrequency = parseFloat(event.target.value);
+    setFrequency(newFrequency);
+  };
+  const handleQChange = (event: any) => {
+    const newQValue = parseFloat(event.target.value);
+    setQValue(newQValue);
   };
 
   const handlePlayAudio = async () => {
@@ -28,27 +45,27 @@ const AudioCapturePlayback = () => {
       if (!isAudioPlaying) {
         const context = new AudioContext();
         setAudioContext(context);
-
-        const gain = context.createGain();
-        setGainNode(gain);
-
-        const filter = context.createBiquadFilter(); 
-        // apply low-pass filtering to the audio data before it is played back 
-        // example of DSP processing
-        filter.type = 'lowpass';
-        filter.frequency.value = 5000;
+  
+        const filter = context.createBiquadFilter();
+        filter.type = filterType; // set filter type
+  
+        // Set filter parameters
+        filter.frequency.value = frequency; // Set cutoff frequency
+        filter.Q.value = QValue; // Set Q factor
+        filter.gain.value = gain; // Set gain
+  
         setFilterNode(filter);
-
+  
         const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
         setMicrophoneStream(stream);
-
+  
         const sourceNode = context.createMediaStreamSource(stream);
         setMicrophoneSourceNode(sourceNode);
-
+  
         sourceNode.connect(filter);
-        filter.connect(gain);
-        gain.connect(context.destination);
+        filter.connect(context.destination); // Connect filter to audio destination
       } else {
+        // Disconnect nodes and stop stream
         if (microphoneSourceNode) {
           microphoneSourceNode.disconnect();
         }
@@ -61,10 +78,6 @@ const AudioCapturePlayback = () => {
         if (audioContext) {
           audioContext.close();
           setAudioContext(null);
-        }
-        if (gainNode) {
-          gainNode.disconnect();
-          setGainNode(null);
         }
         if (filterNode) {
           filterNode.disconnect();
@@ -79,25 +92,62 @@ const AudioCapturePlayback = () => {
 
   return (
     <div>
-      <div className="button-container">
-        <button className="small-button" onClick={handlePlayAudio}>
-          {isAudioPlaying ? 'Stop Microphone' : 'Start Microphone'}
-        </button>
-      </div>
-
-      <div className="controls">
-        <label className='small-text'>Volume: </label>
+      <button className="small-button" onClick={handlePlayAudio}>
+        {isAudioPlaying ? 'Stop Microphone' : 'Start Microphone'}
+      </button>
+      <br />
+      <label className='small-text'>
+        Filter Type:
+        <select value={filterType} onChange={handleFilterChange} className="small-button">
+          <option value="lowpass">Low-pass</option>
+          <option value="highpass">High-pass</option>
+          <option value="bandpass">Band-pass</option>
+          <option value="notch">Notch</option>
+          <option value="peaking">Peaking</option>
+        </select>
+      </label>
+      <br />
+      <label className='small-text'>
+        Frequency:
         <input
           type="range"
-          id="volume"
-          name="volume"
-          min="0"
-          max="1"
-          step="0.01"
-          value={volume}
-          onChange={handleVolumeChange}
+          id="freuqncy"
+          name="frequency"
+          min="20"
+          max="20000"
+          step="50"
+          value={frequency}
+          onChange={handleFrequencyChange}
         />
-      </div>
+      </label><text>{frequency}</text>
+      <br />
+      <label className='small-text'>
+        Q:
+        <input
+          type="range"
+          id="Q"
+          name="Q"
+          min="0.1"
+          max="10"
+          step="0.01"
+          value={QValue}
+          onChange={handleQChange}
+        />
+      </label><text>{QValue}</text>
+      <br />
+      <label className='small-text'>
+        Gain:
+        <input
+          type="range"
+          id="gain"
+          name="gain"
+          min="0"
+          max="2"
+          step="0.01"
+          value={gain}
+          onChange={handleGainChange}
+        />
+      </label><text>{gain}</text>
     </div>
   );
 };
