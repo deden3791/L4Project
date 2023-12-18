@@ -21,7 +21,7 @@ const AudioCapturePlayback = () => {
       filterNode.gain.value = gain;
     }
   }, [audioContext, filterNode, filterType, frequency, QValue, gain]);  
-
+   
   const handleFilterChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedFilter = event.target.value as BiquadFilterType;
     setFilterType(selectedFilter);
