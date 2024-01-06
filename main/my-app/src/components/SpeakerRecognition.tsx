@@ -1,50 +1,45 @@
 import { EagleProfilerWorker, EagleProfiler, EagleProfile, EagleProfilerEnrollResult, EagleProfilerEnrollFeedback } from "@picovoice/eagle-web";
 
-const SpeakerRecognition = async () => {
+function getAudioData(numSamples: number): Int16Array {
+  // Implement logic to capture audio frame of size `numSamples`
+  return new Int16Array(numSamples); // Example placeholder
+}
 
-  const ACCESS_KEY = 'cx7LHaBXZPLMRWspgKUMhcNbWM+miQSQB8M4HsBi6BxWufk0GWkoQw==';
-
+const SpeakerRecognition = async (): Promise<void> => {
+  const ACCESS_KEY: string = 'cx7LHaBXZPLMRWspgKUMhcNbWM+miQSQB8M4HsBi6BxWufk0GWkoQw==';
   const eagleModel = {
     publicPath: "../../public/eagle_params.pv",
+  };
+
+  try {
+    const eagleProfiler: EagleProfilerWorker = await EagleProfilerWorker.create(ACCESS_KEY, eagleModel);
+
+    let percentage: number = 0;
+    while (percentage < 100) {
+      const audioData: Int16Array = getAudioData(eagleProfiler.minEnrollSamples);
+      
+      const result: EagleProfilerEnrollResult = await eagleProfiler.enroll(audioData);
+      if (result.feedback === EagleProfilerEnrollFeedback.AUDIO_OK) {
+          // Audio enrollment successful
+      } else {
+          // Handle feedback indicating why audio wasn't used in enrollment
+      }
+      percentage = result.percentage;
+    }
+
+    const speakerProfilePromise: Promise<EagleProfile> = eagleProfiler.export();
+    const speakerProfile: EagleProfile = await speakerProfilePromise;
+
+    eagleProfiler.release();
+
+    // if on worker thread
+    // eagleProfiler.terminate();
+
+    // Use the 'speakerProfile' data here
+
+  } catch (error) {
+    console.error("Error:", error);
   }
-
-  // Main thread
-  const eagleProfiler = await EagleProfiler.create(
-          ACCESS_KEY,
-          eagleModel);
-
-  // or on worker thread
-  // const eagleProfiler = await EagleProfilerWorker.create(
-  //         ${ACCESS_KEY},
-  //         eagleModel);
-
-  // function getAudioData(numSamples): Int16Array {
-  //   // get audio frame of size `numSamples`
-  // }
-
-  // let percentage = 0;
-  // while (percentage < 100) {
-  //   const audioData = getAudioData(eagleProfiler.minEnrollSamples);
-    
-  //   const result: EagleProfilerEnrollResult = await eagleProfiler.enroll(audioData);
-  //   if (result.feedback === EagleProfilerEnrollFeedback.AUDIO_OK) {
-  //       // audio is good!
-  //   } else {
-  //       // feedback code will tell you why audio was not used in enrollment
-  //   }
-  //   percentage = result.percentage;
-  // }
-
-  // const speakerProfile: EagleProfile = eagleProfiler.export();
-  
-  eagleProfiler.release();
-
-  // if on worker thread
-  // eagleProfiler.terminate();
-
-  return (
-    <div></div>
-  );
 }
 
 export default SpeakerRecognition;
