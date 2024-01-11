@@ -7,6 +7,7 @@ import "../styles/styles.css";
 import TextToSpeech from '../components/TextToSpeech';
 import AudioCapturePlayback from '../components/AudioPlayback';
 import AudioAnalysis from '../components/AudioAnalysis'
+import EagleMicrophone from '../components/EagleComponent';
 
 const CaptionsPage = () => {
 
@@ -58,6 +59,7 @@ const CaptionsPage = () => {
 
         <AudioCapturePlayback />
         <AudioAnalysis /> 
+        <EagleMicrophone />
       </div>
     </div>
   );

@@ -7,9 +7,9 @@ const AudioCapturePlayback = () => {
   const [audioContext, setAudioContext] = useState<AudioContext | null>(null);
   const [microphoneSourceNode, setMicrophoneSourceNode] = useState<MediaStreamAudioSourceNode | null>(null);
   const [filterType, setFilterType] = useState<BiquadFilterType>('lowpass');
-  const [gain, setGain] = useState(2.0);
-  const [QValue, setQValue] = useState(10.0);
-  const [frequency, setFrequency] = useState(20000);
+  const [gain, setGain] = useState(1.0);
+  const [QValue, setQValue] = useState(1.0);
+  const [frequency, setFrequency] = useState(1000);
   const [filterNode, setFilterNode] = useState<BiquadFilterNode | null>(null);
   const [volume, setVolume] = useState(2.0);
 
@@ -113,9 +113,9 @@ const AudioCapturePlayback = () => {
           type="range"
           id="freuqncy"
           name="frequency"
-          min="20"
+          min="100"
           max="20000"
-          step="50"
+          step="100"
           value={frequency}
           onChange={handleFrequencyChange}
         />
@@ -129,7 +129,7 @@ const AudioCapturePlayback = () => {
           name="Q"
           min="0.1"
           max="10"
-          step="0.01"
+          step="0.1"
           value={QValue}
           onChange={handleQChange}
         />
@@ -143,7 +143,7 @@ const AudioCapturePlayback = () => {
           name="gain"
           min="0"
           max="2"
-          step="0.01"
+          step="0.1"
           value={gain}
           onChange={handleGainChange}
         />

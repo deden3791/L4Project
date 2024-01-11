@@ -20,12 +20,24 @@ const EagleMicrophone: React.FC = () => {
   const [testStartBtnDisabled, setTestStartBtnDisabled] = useState<boolean>(true);
   const [resetBtnDisabled, setResetBtnDisabled] = useState<boolean>(true);
   const [displayTimerText, setDisplayTimerText] = useState('0.0');
+  const [audioContext, setAudioContext] = useState<AudioContext | null>(null);
 
   interface SpeakerProps {
     speakerId: number;
     feedback: number;
     progress: number;
   }
+
+  const initializeAudioContext = async () => {
+    try {
+      const context = new (window.AudioContext)({
+        sampleRate: 16000,
+      });
+      setAudioContext(context);
+    } catch (error) {
+      console.error('Failed to initialize AudioContext:', error);
+    }
+  };
 
   const micEnrollEngine = {
     onmessage: async (event: any) => {
@@ -180,15 +192,6 @@ const EagleMicrophone: React.FC = () => {
   useEffect(() => {
     let currentTimer = 0.0;
 
-    const initializeAudioContext = async () => {
-      try {
-        const audioContext = new (window.AudioContext)({ sampleRate: 16000 });
-        // Handle the audio context accordingly, such as setting state or utilizing it in functions
-      } catch (error) {
-        console.error('Failed to initialize AudioContext:', error);
-      }
-    };
-
     initializeAudioContext();
 
     document.getElementById("micEnrollStartBtn")?.addEventListener("click", micEnrollStart);
@@ -202,8 +205,8 @@ const EagleMicrophone: React.FC = () => {
 
   return (
     <div>
-      <label htmlFor="micEnrollStartBtn">Enroll speaker with microphone:</label>
-      <button onClick={micEnrollStart} id="micEnrollStartBtn">
+      <label htmlFor="micEnrollStartBtn" className='small-text'>Enroll speaker with microphone:</label>
+      <button className='small-button' onClick={micEnrollStart} id="micEnrollStartBtn">
         Record Audio
       </button>
       <button onClick={micEnrollStop} id="micEnrollStopBtn" style={{ display: 'none' }}>
