@@ -92,6 +92,7 @@ const AudioCapturePlayback = () => {
 
   return (
     <div>
+      <p className="big-text">Audio Playback:</p>
       <button className="small-button" onClick={handlePlayAudio}>
         {isAudioPlaying ? 'Stop Microphone' : 'Start Microphone'}
       </button>

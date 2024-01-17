@@ -120,6 +120,14 @@
   color: #c49175;
 }
 
+.big-text {
+  font-family: "Gothic A1-Bold", Helvetica;
+  font-size: 22px;
+  font-weight: 700; 
+  color: #c49175;
+  display: flex;
+}
+
 .popup {
   position: fixed;
   top: 0;
@@ -144,4 +152,9 @@
  aspect-ratio: 1;
  background-color: #c49175;
  border: transparent;
+}
+
+.row {
+  display: flex;
+  justify-content: space-around;
 }

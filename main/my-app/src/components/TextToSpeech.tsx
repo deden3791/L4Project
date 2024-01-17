@@ -93,6 +93,7 @@ const TextToSpeech = ({ text }: TextToSpeechProps) => {
 
   return (
     <div>
+      <p className="big-text">Text-to-speech:</p>
       <label className="small-text">
         Voice: 
         <select value={voice?.name || ""} onChange={handleVoiceChange} className="small-button">

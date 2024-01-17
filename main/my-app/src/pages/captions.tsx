@@ -55,11 +55,13 @@ const CaptionsPage = () => {
           <button className="small-button" onClick={resetTranscript}>Reset</button>
         </div>
 
-        <TextToSpeech text={transcript} />
+        <div className='row'>
+          <TextToSpeech text={transcript} />
+          <AudioCapturePlayback />
+          <EnrollmentComponent />
+        </div>
 
-        <AudioCapturePlayback />
         <AudioAnalysis /> 
-        <EnrollmentComponent />
       </div>
     </div>
   );

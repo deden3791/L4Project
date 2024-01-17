@@ -91,7 +91,7 @@ const EnrollmentComponent = () => {
 
   return (
     <div>
-      <h2 className='small-text'>Enrollment Component</h2>
+      <h2 className='big-text'>Enrollment Component</h2>
       <p className='small-text'>Enrollment Progress: {enrollmentPercentage}%</p>
       <button className="small-button" onClick={enrollUser}>Start Enrollment</button>
     </div>
