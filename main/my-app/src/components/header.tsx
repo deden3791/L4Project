@@ -26,11 +26,19 @@ const Header: React.FC<HeaderProps> = ({ title, showBackButton = false }) => {
         )}
       </div>
       <h1 className="title">{title}</h1>
-      <div className='setting-container'>
-        <button className='settings-button' onClick={togglePopup}>
-          <img className="settings" alt="Settings" src={require("../assets/settings.png")}/>
-        </button>
-        {showPopup && <Popup onClose={togglePopup} />}
+      <div className='row'>
+        <div className='setting-container'>
+          <button className='settings-button' onClick={togglePopup}>
+            <img className="settings" alt="Settings" src={require("../assets/profile.png")}/>
+          </button>
+          {showPopup && <Popup onClose={togglePopup} />}
+        </div>
+        <div className='setting-container'>
+          <button className='settings-button' onClick={togglePopup}>
+            <img className="settings" alt="Settings" src={require("../assets/settings.png")}/>
+          </button>
+          {showPopup && <Popup onClose={togglePopup} />}
+        </div>
       </div>
     </div>
   );

@@ -11,7 +11,6 @@ const AudioCapturePlayback = () => {
   const [QValue, setQValue] = useState(1.0);
   const [frequency, setFrequency] = useState(1000);
   const [filterNode, setFilterNode] = useState<BiquadFilterNode | null>(null);
-  const [volume, setVolume] = useState(2.0);
 
   useEffect(() => {
     if (audioContext && filterNode) {

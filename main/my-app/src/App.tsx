@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-
 import HomePage from './pages/home';
 import CaptionsPage from './pages/captions';
 import TextPage from './pages/text';

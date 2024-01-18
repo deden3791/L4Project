@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import Header from '../components/header';
 import "../styles/styles.css";
 import TextToSpeech from '../components/TextToSpeech';
-import AudioCapturePlayback from '../components/AudioPlayback';
 
 const TextPage = () => {
     const [textarea, setTextarea] = useState();

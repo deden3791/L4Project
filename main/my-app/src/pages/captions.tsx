@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import Header from '../components/header';
 import "../styles/styles.css";
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
@@ -8,6 +7,7 @@ import TextToSpeech from '../components/TextToSpeech';
 import AudioCapturePlayback from '../components/AudioPlayback';
 import AudioAnalysis from '../components/AudioAnalysis'
 import EnrollmentComponent from '../components/EagleComponent';
+// import { useNavigate } from 'react-router-dom';
 
 const CaptionsPage = () => {
 

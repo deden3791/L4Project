@@ -29,6 +29,13 @@
   object-fit: cover; 
 }
 
+.settings-button {
+  height: 100%;
+  aspect-ratio: 1;
+  background-color: #c49175;
+  border: transparent;
+}
+
 .header .back-button-container {
   width: 98px;
   padding-left: 10px;
@@ -145,13 +152,6 @@
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-}
-
-.settings-button {
- height: 100%;
- aspect-ratio: 1;
- background-color: #c49175;
- border: transparent;
 }
 
 .row {
