@@ -7,12 +7,9 @@ import TextToSpeech from '../components/TextToSpeech';
 import AudioCapturePlayback from '../components/AudioPlayback';
 import AudioAnalysis from '../components/AudioAnalysis'
 import EnrollmentComponent from '../components/EagleComponent';
-// import { useNavigate } from 'react-router-dom';
 
 const CaptionsPage = () => {
 
-  // const navigate = useNavigate();
-  // const handleClick = () => navigate('/captions');
   
   const [listening, setListening] = useState(false);
   const [textSize, setTextSize] = useState<string>('medium');
@@ -30,7 +27,6 @@ const CaptionsPage = () => {
     letterSpacing: '0',
     color: '#c49175',
   };
-  
 
   const {
     transcript,

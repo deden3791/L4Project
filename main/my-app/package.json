@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@clerk/clerk-react": "^4.30.3",
+    "@clerk/nextjs": "^4.29.3",
     "@picovoice/eagle-web": "^0.1.2",
     "@picovoice/web-voice-processor": "^4.0.8",
     "@testing-library/jest-dom": "^5.17.0",

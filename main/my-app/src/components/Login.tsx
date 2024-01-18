@@ -1,24 +1,34 @@
 import React from 'react';
 import "../styles/styles.css";
-import { SignOutButton, SignInButton, SignedIn, SignedOut } from "@clerk/clerk-react"
+import { SignOutButton, SignInButton, SignedIn, SignedOut, useUser } from "@clerk/clerk-react"
+import { useNavigate } from 'react-router-dom';
 
 interface PopupProps {
   onClose: () => void;
 }
 
 const Popup: React.FC<PopupProps> = ({ onClose }) => {
+
+  const navigate = useNavigate();
+  const handleClickProfile = () => navigate('/profile');
+
+  const { user } = useUser();
+  
   return (
     <div className="popup">
       <div className="popup-content">
         <button className='small-button' onClick={onClose}>Close</button>
         <br />
         <SignedOut>
+          <p className='small-text'>You are not signed in!</p>
           <SignInButton />
-          <p>This content is public. Only signed out users can see the SignInButton above this text.</p>
         </SignedOut>
         <SignedIn>
+          {(user ? <div className='small-text'>Hello {user.fullName}!</div> : null)}
           <SignOutButton />
-          <p>This content is private. Only signed in users can see the SignOutButton above this text.</p>
+          <button className="big-button" type="button" onClick={handleClickProfile}>
+            Profile Page
+          </button>
         </SignedIn>
       </div>
     </div>

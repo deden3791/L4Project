@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import "../styles/styles.css";
+import { useUser } from "@clerk/clerk-react";
+import Save from './save'; 
 
 const AudioCapturePlayback = () => {
   const [isAudioPlaying, setIsPlaying] = useState(false);
@@ -11,6 +13,19 @@ const AudioCapturePlayback = () => {
   const [QValue, setQValue] = useState(1.0);
   const [frequency, setFrequency] = useState(1000);
   const [filterNode, setFilterNode] = useState<BiquadFilterNode | null>(null);
+  const { user } = useUser();
+  const [showSave, setShowSave] = useState(false);
+  const [savedSetting, setSavedSetting] = useState<string>('');
+  const [selectedSetting, setSelectedSetting] = useState({
+    frequency: '',
+    Q: '',
+    gain: '',
+  } as { frequency: string; Q: string; gain: string });
+  const [inputValues, setInputValues] = useState({
+    frequency: '',
+    Q: '',
+    gain: '',
+  });
 
   useEffect(() => {
     if (audioContext && filterNode) {
@@ -19,24 +34,37 @@ const AudioCapturePlayback = () => {
       filterNode.Q.value = QValue;
       filterNode.gain.value = gain;
     }
-  }, [audioContext, filterNode, filterType, frequency, QValue, gain]);  
-   
+  }, [audioContext, filterNode, filterType, frequency, QValue, gain]);
+
+  useEffect(() => {
+    if (user?.unsafeMetadata && savedSetting) {
+      const selectedMetadata = user.unsafeMetadata[savedSetting] as {
+        frequency: string;
+        Q: string;
+        gain: string;
+      };
+      setInputValues(selectedMetadata || { frequency: '', Q: '', gain: '' });
+    }
+  }, [savedSetting, user?.unsafeMetadata]);
+
   const handleFilterChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedFilter = event.target.value as BiquadFilterType;
     setFilterType(selectedFilter);
   };
 
-  const handleGainChange = (event: any) => {
-    const newGain = parseFloat(event.target.value);
-    setGain(newGain);
-  };
-  const handleFrequencyChange = (event: any) => {
+  const handleFrequencyChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newFrequency = parseFloat(event.target.value);
-    setFrequency(newFrequency);
+    setInputValues((prevValues: any) => ({ ...prevValues, frequency: newFrequency }));
   };
-  const handleQChange = (event: any) => {
+  
+  const handleQChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newQValue = parseFloat(event.target.value);
-    setQValue(newQValue);
+    setInputValues((prevValues: any) => ({ ...prevValues, Q: newQValue }));
+  };
+  
+  const handleGainChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const newGain = parseFloat(event.target.value);
+    setInputValues((prevValues: any) => ({ ...prevValues, gain: newGain }));
   };
 
   const handlePlayAudio = async () => {
@@ -89,6 +117,10 @@ const AudioCapturePlayback = () => {
     }
   };
 
+  const toggleSave = () => {
+    setShowSave(!showSave);
+  };
+
   return (
     <div>
       <p className="big-text">Audio Playback:</p>
@@ -111,15 +143,16 @@ const AudioCapturePlayback = () => {
         Frequency:
         <input
           type="range"
-          id="freuqncy"
+          id="frequency"
           name="frequency"
           min="100"
           max="20000"
           step="100"
-          value={frequency}
+          value={inputValues.frequency === '' ? frequency : inputValues.frequency}
           onChange={handleFrequencyChange}
         />
-      </label><text>{frequency}</text>
+        <text>{inputValues.frequency === '' ? frequency : inputValues.frequency}</text>
+      </label>
       <br />
       <label className='small-text'>
         Q:
@@ -130,10 +163,11 @@ const AudioCapturePlayback = () => {
           min="0.1"
           max="10"
           step="0.1"
-          value={QValue}
+          value={inputValues.Q === '' ? QValue : inputValues.Q}
           onChange={handleQChange}
         />
-      </label><text>{QValue}</text>
+        <text>{inputValues.Q === '' ? QValue : inputValues.Q}</text>
+      </label>
       <br />
       <label className='small-text'>
         Gain:
@@ -144,10 +178,30 @@ const AudioCapturePlayback = () => {
           min="0"
           max="2"
           step="0.1"
-          value={gain}
+          value={inputValues.gain === '' ? gain : inputValues.gain}
           onChange={handleGainChange}
         />
-      </label><text>{gain}</text>
+        <text>{inputValues.gain === '' ? gain : inputValues.gain}</text>
+      </label>
+      <br />
+      <label className='small-text'>
+        Saved settings:
+        <select
+          value={savedSetting}
+          onChange={(event) => setSavedSetting(event.target.value)}
+          className="small-button"
+        >
+          {user?.unsafeMetadata &&
+            Object.keys(user.unsafeMetadata).map((option, index) => (
+              <option key={index} value={option}>
+                {option}
+              </option>
+            ))}
+        </select>
+      </label>
+      <br />
+      <button className='small-button' onClick={toggleSave}>Save</button>
+      {showSave && <Save onClose={toggleSave} frequency={inputValues.frequency} gain={inputValues.gain} Q={inputValues.Q} />}
     </div>
   );
 };
