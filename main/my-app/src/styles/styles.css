@@ -1,3 +1,17 @@
+button {
+  color: #c49175;
+  background-color: transparent;
+  font-family: "Gothic A1-Bold", Helvetica;
+  font-size: 20px;  
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+  text-align: center;
+  border-radius: 30px;
+  border-color: #c49175;
+  width: fit-content;
+}
+
 .header {
   display: flex;
   flex-direction: row;
@@ -104,20 +118,6 @@
   width: fit-content;
 }
 
-.text-box {
-  border: 2px solid;
-  border-color: #c49175;
-  border-radius: 30px;
-  height: 255px;
-  width: 718px;
-  padding: 1%;
-  font-family: "Gothic A1-Bold", Helvetica;
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: 0;
-  color: #c49175;
-}
-
 .small-text {
   font-family: "Gothic A1-Bold", Helvetica;
   font-size: 18px;
@@ -156,5 +156,4 @@
 
 .row {
   display: flex;
-  justify-content: space-around;
 }

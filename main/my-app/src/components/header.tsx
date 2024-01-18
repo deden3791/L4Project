@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import "../styles/styles.css";
-import Popup from '../components/Popup'; 
+import Login from './Login'; 
+import Help from './Help'; 
+
 
 interface HeaderProps {
   title: string;
@@ -12,10 +14,15 @@ const Header: React.FC<HeaderProps> = ({ title, showBackButton = false }) => {
 
   let navigate = useNavigate();
 
-  const [showPopup, setShowPopup] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
+  const [showHelp, setShowHelp] = useState(false);
 
-  const togglePopup = () => {
-    setShowPopup(!showPopup);
+  const toggleLogin = () => {
+    setShowLogin(!showLogin);
+  };
+
+  const toggleHelp = () => {
+    setShowHelp(!showHelp);
   };
 
   return (
@@ -28,16 +35,16 @@ const Header: React.FC<HeaderProps> = ({ title, showBackButton = false }) => {
       <h1 className="title">{title}</h1>
       <div className='row'>
         <div className='setting-container'>
-          <button className='settings-button' onClick={togglePopup}>
+          <button className='settings-button' onClick={toggleLogin}>
             <img className="settings" alt="Settings" src={require("../assets/profile.png")}/>
           </button>
-          {showPopup && <Popup onClose={togglePopup} />}
+          {showLogin && <Login onClose={toggleLogin} />}
         </div>
         <div className='setting-container'>
-          <button className='settings-button' onClick={togglePopup}>
+          <button className='settings-button' onClick={toggleHelp}>
             <img className="settings" alt="Settings" src={require("../assets/settings.png")}/>
           </button>
-          {showPopup && <Popup onClose={togglePopup} />}
+          {showHelp && <Help onClose={toggleHelp} />}
         </div>
       </div>
     </div>

@@ -8,9 +8,9 @@ const EnrollmentComponent = () => {
   useEffect(() => {
     const initializeEagleProfiler = async () => {
       try {
+        console.log(process.env.REACT_APP_PUBLIC_URL + "eagle_params.pv")
         const eagleModel = {
-          // publicPath: process.env.PUBLIC_URL + "/eagle_params.pv",
-          publicPath: "../assets/eagle_params.pv",
+          publicPath: process.env.REACT_APP_PUBLIC_URL + "eagle_params.pv",
           // or
           // base64: ${MODEL_BASE64_STRING},
         };
