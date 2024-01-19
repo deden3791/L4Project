@@ -1,6 +1,5 @@
 import React from 'react';
 import "../styles/styles.css";
-import { SignOutButton, SignInButton, SignedIn, SignedOut } from "@clerk/clerk-react"
 
 interface PopupProps {
   onClose: () => void;

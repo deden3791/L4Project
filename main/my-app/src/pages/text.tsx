@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Header from '../components/header';
 import "../styles/styles.css";
 import TextToSpeech from '../components/TextToSpeech';

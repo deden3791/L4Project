@@ -11,6 +11,7 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
 
   const navigate = useNavigate();
   const handleClickProfile = () => navigate('/profile');
+  const handleClickUser = () => navigate('/user');
 
   const { user } = useUser();
   
@@ -25,9 +26,13 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
         </SignedOut>
         <SignedIn>
           {(user ? <div className='small-text'>Hello {user.fullName}!</div> : null)}
+          <br />
           <SignOutButton />
           <button className="big-button" type="button" onClick={handleClickProfile}>
             Profile Page
+          </button>
+          <button className="big-button" type="button" onClick={handleClickUser}>
+            User Page
           </button>
         </SignedIn>
       </div>
