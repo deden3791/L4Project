@@ -1,8 +1,9 @@
-import React from 'react';
+import { useState } from 'react';
 import { useUser } from '@clerk/clerk-react';
 import Header from '../components/header';
 import '../styles/styles.css';
 import { useNavigate } from 'react-router-dom';
+import ResetPassword from '../components/resetPassword'
 
 interface MetadataDetails {
   Q: number;
@@ -18,7 +19,12 @@ interface UnsafeMetadata {
 
 const UserProfile = () => {
   const { user } = useUser();
-  const navigate = useNavigate(); // Move the hook outside of the component
+  const navigate = useNavigate();
+  const [showResetPassword, setShowResetPassword] = useState(false);
+
+  const toggleResetPassword = () => {
+    setShowResetPassword(!showResetPassword);
+  };
 
   if (!user) {
     return <div className='big-text'>Loading...</div>;
@@ -46,20 +52,39 @@ const UserProfile = () => {
           user.update({unsafeMetadata: updatedMetadata });
         }
     };
-    return Object.entries(user.unsafeMetadata as UnsafeMetadata).map(
-        ([save, details]) => (
-            <div key={save}>
-            <h2 className='big-text'>Save: {save}</h2>
-            <p className='small-text'>Filter type: {details.filterType}</p>
-            <p className='small-text'>Frequency: {details.frequency} Hz</p>
-            <p className='small-text'>Q: {details.Q}</p>
-            <p className='small-text'>Gain: {details.gain}</p>
-            <p className='small-text'>Is this a trigger word: {details.trigger ? 'yes' : 'no'}</p>
-            <button className='small-button' onClick={() => handleDeleteSave(save)}>
-                DELETE SAVE
-            </button>
-            </div>
-        )
+    return (
+      <table>
+        <thead>
+          <tr>
+            <th className='small-text-light'>Name</th>
+            <th className='small-text-light'>Filter Type</th>
+            <th className='small-text-light'>Frequency (Hz)</th>
+            <th className='small-text-light'>Q</th>
+            <th className='small-text-light'>Gain</th>
+            <th className='small-text-light'>Trigger?</th>
+            <th className='small-text-light'>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {Object.entries(user.unsafeMetadata as UnsafeMetadata).map(
+            ([save, details]) => (
+              <tr key={save}>
+                <td className='smaller-text'>{save}</td>
+                <td className='smaller-text'>{details.filterType}</td>
+                <td className='smaller-text'>{details.frequency}</td>
+                <td className='smaller-text'>{details.Q}</td>
+                <td className='smaller-text'>{details.gain}</td>
+                <td className='smaller-text'>{details.trigger ? 'yes' : 'no'}</td>
+                <td>
+                  <button className='small-button-dark' onClick={() => handleDeleteSave(save)}>
+                    DELETE SAVE
+                  </button>
+                </td>
+              </tr>
+            )
+          )}
+        </tbody>
+      </table>
     );
   };
 
@@ -67,13 +92,19 @@ const UserProfile = () => {
     <div>
       <Header title='Earbud Controller' showBackButton={true} />
       <div className='pageBody'>
-        <h1 className='big-text'>User Profile</h1>
+        <h1 className='title'>User Profile</h1>
         <p className='small-text'>Name: {user.fullName}</p>
+        <p className='small-text'>Email: {user.primaryEmailAddress?.emailAddress}</p>
+        <p className='small-text'>Last signed in: {user.lastSignInAt?.toDateString()}</p>
+        <button className='small-button' onClick={toggleResetPassword}>Reset password</button>
+        {showResetPassword && <ResetPassword onClose={toggleResetPassword} />}
+        <br />
+        <br />
+        <button className='small-button-dark' onClick={handleDelete}>DELETE ACCOUNT</button>
         <div>
-          <h2 className='big-text'>Metadata</h2>
+          <h2 className='big-text'>Saved settings:</h2>
           {renderMetadata()}
         </div>
-        <button className='small-button' onClick={handleDelete}>DELETE ACCOUNT</button>
       </div>
     </div>
   );
