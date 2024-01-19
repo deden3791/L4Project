@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import "../styles/styles.css";
-import { useUser } from "@clerk/clerk-react";
+import { SignedIn, useUser } from "@clerk/clerk-react";
 import Save from './save'; 
 
-const AudioCapturePlayback = () => {
+interface AudioCapturePlaybackProps {
+  text: any;
+}
+
+const AudioCapturePlayback = ({ text }: AudioCapturePlaybackProps) => {
   const [isAudioPlaying, setIsPlaying] = useState(false);
   const [microphoneStream, setMicrophoneStream] = useState<MediaStream | null>(null);
   const [audioContext, setAudioContext] = useState<AudioContext | null>(null);
@@ -17,11 +21,13 @@ const AudioCapturePlayback = () => {
   const [showSave, setShowSave] = useState(false);
   const [savedSetting, setSavedSetting] = useState<string>('');
   const [selectedSetting, setSelectedSetting] = useState({
+    filterType: '',
     frequency: '',
     Q: '',
     gain: '',
-  } as { frequency: string; Q: string; gain: string });
+  } as { filterType: string, frequency: string; Q: string; gain: string });
   const [inputValues, setInputValues] = useState({
+    filterType: '',
     frequency: '',
     Q: '',
     gain: '',
@@ -39,18 +45,45 @@ const AudioCapturePlayback = () => {
   useEffect(() => {
     if (user?.unsafeMetadata && savedSetting) {
       const selectedMetadata = user.unsafeMetadata[savedSetting] as {
+        filterType: string;
         frequency: string;
         Q: string;
         gain: string;
       };
-      setInputValues(selectedMetadata || { frequency: '', Q: '', gain: '' });
+      setInputValues(selectedMetadata || { filterType: '', frequency: '', Q: '', gain: '' });
     }
-  }, [savedSetting, user?.unsafeMetadata]);
+    
+    // Check if the save is a trigger word
+    if (user?.unsafeMetadata.checked) {
+
+      // Check if the text contains the name of a save
+      const saveNameInText = Object.keys(user?.unsafeMetadata || {}).find((name) =>
+        text.toLowerCase().includes(name.toLowerCase())
+      );
+
+      if (saveNameInText) {
+        const saveMetadata = user?.unsafeMetadata[saveNameInText] as {
+          filterType?: string;
+          frequency?: string;
+          Q?: string;
+          gain?: string;
+        };
+        setFilterType(saveMetadata?.filterType as BiquadFilterType || 'lowpass');
+        setFrequency(Number(saveMetadata?.frequency) || 1000);
+        setQValue(Number(saveMetadata?.Q) || 1.0);
+        setGain(Number(saveMetadata?.gain) || 1.0);
+        setSavedSetting(saveNameInText);
+      }
+    }
+  }, [savedSetting, user?.unsafeMetadata, text]);
+  
 
   const handleFilterChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedFilter = event.target.value as BiquadFilterType;
-    setFilterType(selectedFilter);
+    const newFilterType = event.target.value as BiquadFilterType;
+    setFilterType(newFilterType);
+    setInputValues((prevValues: any) => ({ ...prevValues, filterType: newFilterType }));
   };
+  
 
   const handleFrequencyChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newFrequency = parseFloat(event.target.value);
@@ -75,8 +108,6 @@ const AudioCapturePlayback = () => {
   
         const filter = context.createBiquadFilter();
         filter.type = filterType; // set filter type
-  
-        // Set filter parameters
         filter.frequency.value = frequency; // Set cutoff frequency
         filter.Q.value = QValue; // Set Q factor
         filter.gain.value = gain; // Set gain
@@ -130,7 +161,7 @@ const AudioCapturePlayback = () => {
       <br />
       <label className='small-text'>
         Filter Type:
-        <select value={filterType} onChange={handleFilterChange} className="small-button">
+        <select value={inputValues.filterType === '' ? filterType : inputValues.filterType} onChange={handleFilterChange} className="small-button">
           <option value="lowpass">Low-pass</option>
           <option value="highpass">High-pass</option>
           <option value="bandpass">Band-pass</option>
@@ -183,25 +214,27 @@ const AudioCapturePlayback = () => {
         />
         <text>{inputValues.gain === '' ? gain : inputValues.gain}</text>
       </label>
-      <br />
-      <label className='small-text'>
-        Saved settings:
-        <select
-          value={savedSetting}
-          onChange={(event) => setSavedSetting(event.target.value)}
-          className="small-button"
-        >
-          {user?.unsafeMetadata &&
-            Object.keys(user.unsafeMetadata).map((option, index) => (
-              <option key={index} value={option}>
-                {option}
-              </option>
-            ))}
-        </select>
-      </label>
-      <br />
-      <button className='small-button' onClick={toggleSave}>Save</button>
-      {showSave && <Save onClose={toggleSave} frequency={inputValues.frequency} gain={inputValues.gain} Q={inputValues.Q} />}
+      <SignedIn>
+        <br />
+        <label className='small-text'>
+          Saved settings:
+          <select
+            value={savedSetting}
+            onChange={(event) => setSavedSetting(event.target.value)}
+            className="small-button"
+          >
+            {user?.unsafeMetadata &&
+              Object.keys(user.unsafeMetadata).map((option, index) => (
+                <option key={index} value={option}>
+                  {option}
+                </option>
+              ))}
+          </select>
+        </label>
+        <br />
+        <button className='small-button' onClick={toggleSave}>Save</button>
+        {showSave && <Save onClose={toggleSave} filterType={inputValues.filterType} frequency={inputValues.frequency} gain={inputValues.gain} Q={inputValues.Q} />}
+      </SignedIn>
     </div>
   );
 };

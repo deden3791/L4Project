@@ -77,7 +77,7 @@ const CaptionsPage = () => {
 
         <div className='row'>
           <TextToSpeech text={transcript} />
-          <AudioCapturePlayback />
+          <AudioCapturePlayback text={transcript} />
         </div>
 
         <EnrollmentComponent />
