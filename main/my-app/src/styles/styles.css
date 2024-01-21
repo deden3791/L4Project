@@ -40,7 +40,6 @@ button {
   line-height: normal;
 }
 
-
 .header .setting-container {
   width: 98px;
   padding-right: 10px;
@@ -75,16 +74,15 @@ button {
   justify-content: center;
   flex-direction: column;
   padding: 30px;
+  text-align: center;
 }
 
 .pageBody .button-container {
-  display: flex;
   height: 30px;
   padding: 10px;  
 }
 
 .pageBody .big-button {
-  display: flex;
   color: #c49175;
   background-color: transparent;
   font-family: "Gothic A1-Bold", Helvetica;
@@ -128,7 +126,6 @@ button {
 }
 
 .popup .small-button {
-  display: flex;
   color: #c49175;
   background-color: transparent;
   font-family: "Gothic A1-Bold", Helvetica;
@@ -174,7 +171,6 @@ button {
   font-size: 22px;
   font-weight: 700; 
   color: #c49175;
-  display: flex;
 }
 
 .popup {
@@ -198,6 +194,7 @@ button {
 
 .row {
   display: flex;
+  justify-content: center;
 }
 
 table {
@@ -223,4 +220,9 @@ tr:hover {
   margin-top: 8px; 
   font-size: 14px; 
   font-family: "Gothic A1-Bold", Helvetica;
+}
+
+input[type="range"] {
+  width: 150px; 
+  vertical-align: middle;
 }

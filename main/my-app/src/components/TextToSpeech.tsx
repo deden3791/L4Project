@@ -117,6 +117,7 @@ const TextToSpeech = ({ text }: TextToSpeechProps) => {
           value={pitch}
           onChange={handlePitchChange}
         />
+        <text>{pitch}</text>
       </label>
 
       <br />
@@ -131,8 +132,11 @@ const TextToSpeech = ({ text }: TextToSpeechProps) => {
           value={rate}
           onChange={handleRateChange}
         />
+        <text>{rate}</text>
       </label>
+
       <br />
+
       <label className="small-text">
         Volume:
         <input
@@ -143,6 +147,7 @@ const TextToSpeech = ({ text }: TextToSpeechProps) => {
           value={volume}
           onChange={handleVolumeChange}
         />
+        <text>{volume}</text>
       </label>
 
       <br />

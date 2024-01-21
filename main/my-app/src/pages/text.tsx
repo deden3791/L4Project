@@ -33,6 +33,7 @@ const TextPage = () => {
       onChange={handleChange}
       style={textAreaStyle}
       />
+      <br />
       <label className='big-text'>Text size:
           <select value={textSize} onChange={(event) => setTextSize(event.target.value)} className="small-button">
             <option value="small">Small</option>
