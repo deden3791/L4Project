@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import Header from '../components/header';
 import "../styles/styles.css";
 import TextToSpeech from '../components/TextToSpeech';
 
@@ -27,25 +26,22 @@ const TextPage = () => {
 
   return (
     <div>
-      <Header title="Earbud Controller" showBackButton={true} />
-      <div className='pageBody'>
+      <p className='big-text'>Text-to-speech</p>
+      <textarea
+      value={textarea}
+      placeholder='Enter text to start :)'
+      onChange={handleChange}
+      style={textAreaStyle}
+      />
+      <label className='big-text'>Text size:
+          <select value={textSize} onChange={(event) => setTextSize(event.target.value)} className="small-button">
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+          </select>
+        </label>
 
-        <textarea
-        value={textarea}
-        placeholder='Enter text to start :)'
-        onChange={handleChange}
-        style={textAreaStyle}
-        />
-        <label className='big-text'>Text size:
-            <select value={textSize} onChange={(event) => setTextSize(event.target.value)} className="small-button">
-              <option value="small">Small</option>
-              <option value="medium">Medium</option>
-              <option value="large">Large</option>
-            </select>
-          </label>
-
-        {textarea && <TextToSpeech text={textarea} />}
-      </div>
+      {textarea && <TextToSpeech text={textarea} />}
     </div>
   );
 };

@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import Header from '../components/header';
+import { useState } from 'react';
 import "../styles/styles.css";
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import "../styles/styles.css";
@@ -9,7 +8,6 @@ import AudioAnalysis from '../components/AudioAnalysis'
 import EnrollmentComponent from '../components/EagleComponent';
 
 const CaptionsPage = () => {
-
   
   const [listening, setListening] = useState(false);
   const [textSize, setTextSize] = useState<string>('medium');
@@ -50,39 +48,37 @@ const CaptionsPage = () => {
 
   return (
     <div>
-      <Header title="Earbud Controller" showBackButton={true} />
-      <div className='pageBody'>
-        <p className='small-text'>Listening: {listening ? 'on' : 'off'}</p>
-        
-        <textarea
-          className='text-box'
-          value={transcript}
-          placeholder='Waiting for speech'
-          style={textAreaStyle}
-        />
+      <p className='big-text'>Speech-to-text</p>
+      <p className='small-text'>Listening: {listening ? 'on' : 'off'}</p>
+      
+      <textarea
+        className='text-box'
+        value={transcript}
+        placeholder='Waiting for speech'
+        style={textAreaStyle}
+      />
 
-        <div className="button-container">
-          <button className="small-button" onClick={toggleListening}>
-            {listening ? 'Stop Listening' : 'Start Listening'}
-          </button>
-          <button className="small-button" onClick={resetTranscript}>Reset</button>
-          <label className='big-text'>Text size:
-            <select value={textSize} onChange={(event) => setTextSize(event.target.value)} className="small-button">
-              <option value="small">Small</option>
-              <option value="medium">Medium</option>
-              <option value="large">Large</option>
-            </select>
-          </label>
-        </div>
-
-        <div className='row'>
-          <TextToSpeech text={transcript} />
-          <AudioCapturePlayback text={transcript} />
-        </div>
-
-        <EnrollmentComponent />
-        <AudioAnalysis /> 
+      <div className="button-container">
+        <button className="small-button" onClick={toggleListening}>
+          {listening ? 'Stop Listening' : 'Start Listening'}
+        </button>
+        <button className="small-button" onClick={resetTranscript}>Reset</button>
+        <label className='big-text'>Text size:
+          <select value={textSize} onChange={(event) => setTextSize(event.target.value)} className="small-button">
+            <option value="small">Small</option>
+            <option value="medium">Medium</option>
+            <option value="large">Large</option>
+          </select>
+        </label>
       </div>
+
+      <div className='row'>
+        <TextToSpeech text={transcript} />
+        <AudioCapturePlayback text={transcript} />
+      </div>
+
+      <EnrollmentComponent />
+      <AudioAnalysis /> 
     </div>
   );
 };

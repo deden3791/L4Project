@@ -1,25 +1,23 @@
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
 import Header from '../components/header';
-import "../styles/styles.css";
-
-// let host = new Host();
+import ToggleSwitch from '../components/ToggleSwitch'; 
+import CaptionsPage from './captions';
+import TextPage from './text';
+import '../styles/styles.css';
 
 const HomePage = () => {
+  const [isTextPage, setIsTextPage] = useState(false);
 
-  const navigate = useNavigate();
-  const handleClickCaptions = () => navigate('/captions');
-  const handleClickText = () => navigate('/text');
+  const handleToggleChange = (isChecked: boolean) => {
+    setIsTextPage(isChecked);
+  };
 
   return (
     <div>
-      <Header title="Earbud Controller" showBackButton={false}/>
+      <Header title="Earbud Controller" showBackButton={false} />
       <div className='pageBody'>
-        <button className="big-button" type="button" onClick={handleClickCaptions}>
-          Speech To Text
-        </button>
-        <button className="big-button" type="button" onClick={handleClickText}>
-          Text to Speech
-        </button>
+        <ToggleSwitch defaultChecked={false} onChange={handleToggleChange} />
+        {isTextPage ? <TextPage /> : <CaptionsPage />}
       </div>
     </div>
   );
