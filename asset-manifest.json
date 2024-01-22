@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/L4Project/static/css/main.b3d56cff.css",
+    "main.js": "/L4Project/static/js/main.1c02813f.js",
+    "static/js/787.9c628ac4.chunk.js": "/L4Project/static/js/787.9c628ac4.chunk.js",
+    "index.html": "/L4Project/index.html",
+    "main.b3d56cff.css.map": "/L4Project/static/css/main.b3d56cff.css.map",
+    "main.1c02813f.js.map": "/L4Project/static/js/main.1c02813f.js.map",
+    "787.9c628ac4.chunk.js.map": "/L4Project/static/js/787.9c628ac4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b3d56cff.css",
+    "static/js/main.1c02813f.js"
+  ]
+}
