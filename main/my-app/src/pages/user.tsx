@@ -53,38 +53,40 @@ const UserProfile = () => {
         }
     };
     return (
-      <table>
-        <thead>
-          <tr>
-            <th className='small-text-light'>Name</th>
-            <th className='small-text-light'>Filter Type</th>
-            <th className='small-text-light'>Frequency (Hz)</th>
-            <th className='small-text-light'>Q</th>
-            <th className='small-text-light'>Gain</th>
-            <th className='small-text-light'>Trigger?</th>
-            <th className='small-text-light'>Delete</th>
-          </tr>
-        </thead>
-        <tbody>
-          {Object.entries(user.unsafeMetadata as UnsafeMetadata).map(
-            ([save, details]) => (
-              <tr key={save}>
-                <td className='smaller-text'>{save}</td>
-                <td className='smaller-text'>{details.filterType}</td>
-                <td className='smaller-text'>{details.frequency}</td>
-                <td className='smaller-text'>{details.Q}</td>
-                <td className='smaller-text'>{details.gain}</td>
-                <td className='smaller-text'>{details.trigger ? 'yes' : 'no'}</td>
-                <td>
-                  <button className='small-button-dark' onClick={() => handleDeleteSave(save)}>
-                    DELETE SAVE
-                  </button>
-                </td>
-              </tr>
-            )
-          )}
-        </tbody>
-      </table>
+      <div className='container'>
+        <table>
+          <thead>
+            <tr>
+              <th className='small-text-light'>Name</th>
+              <th className='small-text-light'>Filter Type</th>
+              <th className='small-text-light'>Frequency (Hz)</th>
+              <th className='small-text-light'>Q</th>
+              <th className='small-text-light'>Gain</th>
+              <th className='small-text-light'>Trigger?</th>
+              <th className='small-text-light'>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            {Object.entries(user.unsafeMetadata as UnsafeMetadata).map(
+              ([save, details]) => (
+                <tr key={save}>
+                  <td className='smaller-text'>{save}</td>
+                  <td className='smaller-text'>{details.filterType}</td>
+                  <td className='smaller-text'>{details.frequency}</td>
+                  <td className='smaller-text'>{details.Q}</td>
+                  <td className='smaller-text'>{details.gain}</td>
+                  <td className='smaller-text'>{details.trigger ? 'yes' : 'no'}</td>
+                  <td>
+                    <button className='small-button-dark' onClick={() => handleDeleteSave(save)}>
+                      DELETE SAVE
+                    </button>
+                  </td>
+                </tr>
+              )
+            )}
+          </tbody>
+        </table>
+      </div>
     );
   };
 

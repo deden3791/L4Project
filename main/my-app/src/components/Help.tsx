@@ -11,6 +11,7 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
       <div className="popup-content">
         <button className='small-button' onClick={onClose}>Close</button>
         <br />
+        <br />
         <table>
           <thead>
             <tr>
@@ -41,6 +42,7 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
             </tr>
           </tbody>
         </table>
+        <br />
         <br />
         <table>
           <thead>

@@ -10,7 +10,7 @@ interface PopupProps {
 const Popup: React.FC<PopupProps> = ({ onClose }) => {
 
   const navigate = useNavigate();
-  const handleClickUser = () => navigate('/profile');
+  const handleClickUser = () => navigate('/L4Project/profile');
 
   const { user } = useUser();
   

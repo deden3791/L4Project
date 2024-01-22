@@ -1,3 +1,7 @@
+body {
+  margin: 0;
+}
+
 button {
   color: #c49175;
   background-color: transparent;
@@ -14,21 +18,21 @@ button {
 
 .header {
   display: flex;
-  flex-direction: row;
-  background-color: #c49175;
-  height: 90px;
-  width: 100%;
   justify-content: space-between;
+  align-items: center;
+  background-color: #c49175;
+  height: 100px;
+  width: 100%;
 }
 
-.header .title {
+.title-light{
   color: #f2ebee;
   font-family: "Gothic A1-Bold", Helvetica;
   font-size: 41px;
   font-weight: 700;
   letter-spacing: 0;
-  line-height: normal;
   text-align: center;
+  margin: auto;
 }
 
 .title {
@@ -44,6 +48,7 @@ button {
   width: 98px;
   padding-right: 10px;
   background-color: "red";
+  margin-left: auto;
 }
 
 .header .settings {
@@ -62,6 +67,7 @@ button {
 .header .back-button-container {
   width: 98px;
   padding-left: 10px;
+  margin-right: auto;
 }
 
 .header .back-button {
@@ -71,8 +77,10 @@ button {
 }
 
 .pageBody {
+  display: flex;
   justify-content: center;
   flex-direction: column;
+  align-items: center;
   padding: 30px;
   text-align: center;
 }
@@ -194,7 +202,12 @@ button {
 
 .row {
   display: flex;
-  justify-content: center;
+  align-items: center;
+}
+
+.table-container {
+  text-align: center;
+  margin-top: 20px;
 }
 
 table {
