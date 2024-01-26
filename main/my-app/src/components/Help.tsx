@@ -66,6 +66,9 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
             </tr>
           </tbody>
         </table>
+        <br />
+        <br />
+        <p className='small-text'>To contact us about any feedback or issues, please email <a href="mailto:2514468e@student.gla.ac.uk">2514468e@student.gla.ac.uk</a> :)</p>
       </div>
     </div>
   );
