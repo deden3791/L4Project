@@ -32,6 +32,7 @@ const AudioCapturePlayback = ({ text }: AudioCapturePlaybackProps) => {
     Q: '',
     gain: '',
   });
+  var words = [];
 
   useEffect(() => {
     if (audioContext && filterNode) {
@@ -43,6 +44,8 @@ const AudioCapturePlayback = ({ text }: AudioCapturePlaybackProps) => {
   }, [audioContext, filterNode, filterType, frequency, QValue, gain]);
 
   useEffect(() => {
+    console.log('useEffect triggered');
+    console.log('user?.unsafeMetadata.checked:', user?.unsafeMetadata['amy']);
     if (user?.unsafeMetadata && savedSetting) {
       const selectedMetadata = user.unsafeMetadata[savedSetting] as {
         filterType: string;
@@ -54,25 +57,36 @@ const AudioCapturePlayback = ({ text }: AudioCapturePlaybackProps) => {
     }
     
     // Check if the save is a trigger word
-    if (user?.unsafeMetadata.checked) {
+    const isTriggerWord = Object.keys(user?.unsafeMetadata || {}).some((name) =>
+    (user?.unsafeMetadata[name] as { trigger?: boolean })?.trigger === true
+    );
+
+      if (isTriggerWord) {
+      const words = text.toLowerCase().split(' ');
+
+      console.log('Words:', words);
+      console.log('Unsafe Metadata Keys:', Object.keys(user?.unsafeMetadata || {}));
 
       // Check if the text contains the name of a save
       const saveNameInText = Object.keys(user?.unsafeMetadata || {}).find((name) =>
-        text.toLowerCase().includes(name.toLowerCase())
+      words.includes(name.toLowerCase()),
       );
 
+      console.log('Words:', words);
+      console.log('Unsafe Metadata Keys:', Object.keys(user?.unsafeMetadata || {}));
+
       if (saveNameInText) {
-        const saveMetadata = user?.unsafeMetadata[saveNameInText] as {
-          filterType?: string;
-          frequency?: string;
-          Q?: string;
-          gain?: string;
-        };
-        setFilterType(saveMetadata?.filterType as BiquadFilterType || 'lowpass');
-        setFrequency(Number(saveMetadata?.frequency) || 1000);
-        setQValue(Number(saveMetadata?.Q) || 1.0);
-        setGain(Number(saveMetadata?.gain) || 1.0);
-        setSavedSetting(saveNameInText);
+      const saveMetadata = user?.unsafeMetadata[saveNameInText] as {
+        filterType?: string;
+        frequency?: string;
+        Q?: string;
+        gain?: string;
+      };
+      setFilterType(saveMetadata?.filterType as BiquadFilterType || 'lowpass');
+      setFrequency(Number(saveMetadata?.frequency) || 1000);
+      setQValue(Number(saveMetadata?.Q) || 1.0);
+      setGain(Number(saveMetadata?.gain) || 1.0);
+      setSavedSetting(saveNameInText);
       }
     }
   }, [savedSetting, user?.unsafeMetadata, text]);

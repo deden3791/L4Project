@@ -20,7 +20,6 @@ const TextToSpeech = ({ text }: TextToSpeechProps) => {
 
     setUtterance(u);
     setVoice(voices[0]);
-    console.log(text)
 
     return () => {
       if (text == '') {
