@@ -17,6 +17,7 @@ button {
 }
 
 .header {
+  text-align: center;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,7 +33,7 @@ button {
   font-weight: 700;
   letter-spacing: 0;
   text-align: center;
-  margin: auto;
+  flex-grow: 1;
 }
 
 .title {
@@ -45,10 +46,7 @@ button {
 }
 
 .header .setting-container {
-  width: 98px;
-  padding-right: 10px;
-  background-color: "red";
-  margin-left: auto;
+  display: flex;
 }
 
 .header .settings {
