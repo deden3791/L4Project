@@ -94,13 +94,12 @@ const UserProfile = () => {
     <div>
       <Header title='Earbud Controller' showBackButton={true} />
       <div className='pageBody'>
-        <h1 className='title'>User Profile</h1>
+        <h1 className='bigger-text'>User Profile</h1>
         <p className='small-text'>Name: {user.fullName}</p>
         <p className='small-text'>Email: {user.primaryEmailAddress?.emailAddress}</p>
         <p className='small-text'>Last signed in: {user.lastSignInAt?.toDateString()}</p>
         <button className='small-button' onClick={toggleResetPassword}>Reset password</button>
         {showResetPassword && <ResetPassword onClose={toggleResetPassword} />}
-        <br />
         <br />
         <button className='small-button-dark' onClick={handleDelete}>DELETE ACCOUNT</button>
         <div>

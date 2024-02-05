@@ -115,6 +115,7 @@ button {
   border-radius: 30px;
   border-color: #c49175;
   width: fit-content;
+  margin: 5px;
 }
 
 .pageBody .small-button-dark { 
@@ -175,6 +176,13 @@ button {
 .big-text {
   font-family: "Gothic A1-Bold", Helvetica;
   font-size: 22px;
+  font-weight: 700; 
+  color: #c49175;
+}
+
+.bigger-text {
+  font-family: "Gothic A1-Bold", Helvetica;
+  font-size: 28px;
   font-weight: 700; 
   color: #c49175;
 }
