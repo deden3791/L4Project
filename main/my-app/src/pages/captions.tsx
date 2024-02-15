@@ -77,8 +77,8 @@ const CaptionsPage = () => {
         <AudioCapturePlayback text={transcript} />
       </div>
 
-      <EnrollmentComponent />
-      <AudioAnalysis /> 
+      {/* <EnrollmentComponent />
+      <AudioAnalysis />  */}
     </div>
   );
 };
