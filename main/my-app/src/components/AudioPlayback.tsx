@@ -44,8 +44,6 @@ const AudioCapturePlayback = ({ text }: AudioCapturePlaybackProps) => {
   }, [audioContext, filterNode, filterType, frequency, QValue, gain]);
 
   useEffect(() => {
-    console.log('useEffect triggered');
-    console.log('user?.unsafeMetadata.checked:', user?.unsafeMetadata['amy']);
     if (user?.unsafeMetadata && savedSetting) {
       const selectedMetadata = user.unsafeMetadata[savedSetting] as {
         filterType: string;
@@ -64,16 +62,9 @@ const AudioCapturePlayback = ({ text }: AudioCapturePlaybackProps) => {
       if (isTriggerWord) {
       const words = text.toLowerCase().split(' ');
 
-      console.log('Words:', words);
-      console.log('Unsafe Metadata Keys:', Object.keys(user?.unsafeMetadata || {}));
-
-      // Check if the text contains the name of a save
       const saveNameInText = Object.keys(user?.unsafeMetadata || {}).find((name) =>
       words.includes(name.toLowerCase()),
       );
-
-      console.log('Words:', words);
-      console.log('Unsafe Metadata Keys:', Object.keys(user?.unsafeMetadata || {}));
 
       if (saveNameInText) {
       const saveMetadata = user?.unsafeMetadata[saveNameInText] as {

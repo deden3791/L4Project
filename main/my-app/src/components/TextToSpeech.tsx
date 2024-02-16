@@ -28,17 +28,6 @@ const TextToSpeech = ({ text }: TextToSpeechProps) => {
     };
   }, [text]);
 
-  // useEffect(() => {
-  //   const synth = window.speechSynthesis;
-  //   if (utterance) {
-  //     utterance.voice = voice;
-  //     utterance.pitch = pitch;
-  //     utterance.rate = rate;
-  //     utterance.volume = volume;
-  //     synth.speak(utterance);
-  //   }
-  // }, [voice, pitch, rate, volume]);
-
   const handlePlay = () => {
     const synth = window.speechSynthesis;
 
