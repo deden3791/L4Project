@@ -88,7 +88,7 @@ const CaptionsPage = () => {
   const [listening, setListening] = useState(false);
   const [textSize, setTextSize] = useState<string>('medium');
   const [selectedLanguage, setSelectedLanguage] = useState<string>('English');
-  const [selectedCountry, setSelectedCountry] = useState<string>('en-AU');
+  const [selectedCountry, setSelectedCountry] = useState<string>('en-GB');
 
   const textAreaStyle = {
     border: '2px solid',
@@ -124,7 +124,6 @@ const CaptionsPage = () => {
   const handleLanguageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedLang = event.target.value;
     setSelectedLanguage(selectedLang);
-    // Set the default country for the selected language
     setSelectedCountry(langs.find(lang => lang.language === selectedLang)?.countries[0] || '');
   };
 
@@ -157,7 +156,7 @@ const CaptionsPage = () => {
           </button>
           <button className="small-button" onClick={resetTranscript}>Reset</button>
         </div>
-        <div className="button-container">
+        <div className="row">
           <label className='big-text'>Language:
             <select value={selectedLanguage} onChange={handleLanguageChange} className="small-button">
               {langs.map(lang => (
