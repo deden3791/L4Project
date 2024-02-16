@@ -41,9 +41,22 @@ To begin using the web application, simply navigate to the provided URL in your 
 - If you would like to sign out just click the 'Sign out' button.
 
 ![Sign in guide](https://github.com/deden3791/L4Project/blob/main/main/UserGuides/Images/SignIn.gif)
+![Sign out guide](https://github.com/deden3791/L4Project/blob/main/main/UserGuides/Images/SignOut.gif)
 
-### Saving Audio Playback Settings
+### User Profile and Saved Settings
 
-### User Profile
+- Once you are logged in, you can navigate to your profile through the profile icon.
+- Here you can see your account details, change your password, see your saved settings, delete your saved settings and delete your account.
+- To save a setting, change the variables to what you feel is most comfortable then click 'Save'.
+- This pop up will allow you to name the save and select if it is a trigger word.
+- Making a save a trigger word means that if the Speech-to-text detects that trigger word, the settings will change to that save.
+- For example, if I name a save 'amy' if the speech-to-text detects "Hello amy" the settings will change to the 'amy' save.
+
+![Audio guide](https://github.com/deden3791/L4Project/blob/main/main/UserGuides/Images/AudioAnalysis.gif)
+
 
 ### Web-app Guide
+
+- If you are ever unsure about what the variables mean, click on the settings icon in the header for more information.
+
+![Audio guide](https://github.com/deden3791/L4Project/blob/main/main/UserGuides/Images/Guide.gif)
