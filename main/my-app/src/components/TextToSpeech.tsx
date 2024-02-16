@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../styles/styles.css";
 
 interface TextToSpeechProps {
-  text: string;
+  text: any;
 }
 
 const TextToSpeech = ({ text }: TextToSpeechProps) => {
@@ -22,47 +22,53 @@ const TextToSpeech = ({ text }: TextToSpeechProps) => {
     setVoice(voices[0]);
 
     return () => {
-      if (text === '') {
+      if (text == '') {
         synth.cancel();
       }
     };
   }, [text]);
 
-  useEffect(() => {
-    const synth = window.speechSynthesis;
-    const handleEnd = () => {
-      setIsPaused(false);
-    };
+  // useEffect(() => {
+  //   const synth = window.speechSynthesis;
+  //   if (utterance) {
+  //     utterance.voice = voice;
+  //     utterance.pitch = pitch;
+  //     utterance.rate = rate;
+  //     utterance.volume = volume;
+  //     synth.speak(utterance);
+  //   }
+  // }, [voice, pitch, rate, volume]);
 
-    if (utterance) {
+  const handlePlay = () => {
+    const synth = window.speechSynthesis;
+
+    if (isPaused) {
+      synth.resume();
+    }
+    if (utterance && voice) {
       utterance.voice = voice;
       utterance.pitch = pitch;
       utterance.rate = rate;
       utterance.volume = volume;
-      utterance.onend = handleEnd;
-      if (!isPaused) {
-        synth.speak(utterance);
-      }
+      synth.speak(utterance);
     }
 
-    return () => {
-      utterance?.removeEventListener("end", handleEnd);
-    };
-  }, [utterance, voice, pitch, rate, volume, isPaused]);
-
-  const handlePlay = () => {
     setIsPaused(false);
   };
 
   const handlePause = () => {
     const synth = window.speechSynthesis;
+
     synth.pause();
+
     setIsPaused(true);
   };
 
   const handleStop = () => {
     const synth = window.speechSynthesis;
+
     synth.cancel();
+
     setIsPaused(false);
   };
 
