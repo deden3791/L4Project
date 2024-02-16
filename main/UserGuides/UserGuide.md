@@ -21,6 +21,17 @@ To begin using the web application, simply navigate to the provided URL in your 
 
 ### Audio Playback
 
+- By clicking on 'Start Microphone' the web-app will playback the audio from your surroundings.
+- You can adjust the settings by moving the sliders and changing the filter type  till you feel comfortable.
+
+![Audio guide](https://github.com/deden3791/L4Project/blob/main/main/UserGuides/Images/AudioAnalysis.gif)
+
+### Web-app Guide
+
+- If you are ever unsure about what the variables mean, click on the settings icon in the header for more information.
+
+![Audio guide](https://github.com/deden3791/L4Project/blob/main/main/UserGuides/Images/Guide.gif)
+
 ### Text-to-speech
 
 - Click on the toggle to change to Text-to-speech.
@@ -52,11 +63,6 @@ To begin using the web application, simply navigate to the provided URL in your 
 - Making a save a trigger word means that if the Speech-to-text detects that trigger word, the settings will change to that save.
 - For example, if I name a save 'amy' if the speech-to-text detects "Hello amy" the settings will change to the 'amy' save.
 
-![Audio guide](https://github.com/deden3791/L4Project/blob/main/main/UserGuides/Images/AudioAnalysis.gif)
+![Audio guide](https://github.com/deden3791/L4Project/blob/main/main/UserGuides/Images/Profile.gif)
 
 
-### Web-app Guide
-
-- If you are ever unsure about what the variables mean, click on the settings icon in the header for more information.
-
-![Audio guide](https://github.com/deden3791/L4Project/blob/main/main/UserGuides/Images/Guide.gif)
