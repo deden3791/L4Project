@@ -15,7 +15,7 @@ To begin using the web application, simply navigate to the provided URL in your 
 - Speak clearly into your device's microphone.
 - Watch as your words are transcribed into text in real-time.
 
-![Speech-to-text guide](/Images/STT.gif)
+![Speech-to-text guide](https://github.com/deden3791/L4Project/blob/main/main/UserGuides/Images/STT.gif)
 
 ### Speech-to-text and Text-to-speech
 
