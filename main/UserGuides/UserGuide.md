@@ -1,7 +1,30 @@
 # User Guide
 
-This web-app is a level-4 honours project built by Amy Eden.
+Welcome to Amy Eden's web application, a level-4 honors project aimed at providing affordable solutions for the Deaf and Hard-of-Hearing (DHH) community through the utilisation of Web Speech API. This guide is designed to walk you through how to effectively use this innovative tool, enhancing accessibility for individuals with hearing loss. 
 
-The web-app is a proof of concept for afforable solutions for the Deaf and Hard-of-Hearing community utalising Web Speech API. 
+To begin using the web application, simply navigate to the provided URL in your web browser. Upon arrival, you will be greeted with a user-friendly interface designed with the DHH community in mind.
 
-This guide will walk you through how to use the web-app. 
+[Link to the web-application](https://deden3791.github.io/L4Project/)
+
+## How to Use
+
+### Speech-to-text
+
+- Select a dialect you wish to be transcribed
+- Click on the 'Start Listening' button to activate speech recognition.
+- Speak clearly into your device's microphone.
+- Watch as your words are transcribed into text in real-time.
+
+### Speech-to-text and Text-to-speech
+
+### Audio Playback
+
+### Text-to-speech
+
+### Logging in
+
+### Saving Audio Playback Settings
+
+### User Profile
+
+### Web-app Guide
