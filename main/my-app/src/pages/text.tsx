@@ -15,13 +15,14 @@ const TextPage = () => {
       borderColor: '#c49175',
       borderRadius: '30px',
       height: '255px',
-      width: '718px',
-      padding: '1%',
+      width: '100%',
+      padding: '2%',
       fontFamily: '"Gothic A1-Bold", Helvetica',
       fontSize: textSize === 'small' ? '18px' : (textSize === 'medium' ? '22px' : '26px'),
       fontWeight: '700',
       letterSpacing: '0',
       color: '#c49175',
+      background: '#f2ebee',
     };
 
   return (

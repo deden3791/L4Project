@@ -32,8 +32,8 @@ const Header: React.FC<HeaderProps> = ({ title, showBackButton = false }) => {
           <img className="back-button" onClick={() => navigate(-1)} src={require("../assets/backButton.png")}/>
         )}
       </div>
-      <h1 className="title-light">{title}</h1>
-      <div className='row'>
+      <h1 className="title-light desktop-only">{title}</h1> {/* Added "desktop-only" class */}
+      <div className='row-items'>
         <div className='setting-container'>
           <button className='settings-button' onClick={toggleLogin}>
             <img className="settings" alt="Settings" src={require("../assets/profile.png")}/>
