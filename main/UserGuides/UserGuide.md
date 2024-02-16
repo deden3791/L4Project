@@ -23,7 +23,24 @@ To begin using the web application, simply navigate to the provided URL in your 
 
 ### Text-to-speech
 
+- Click on the toggle to change to Text-to-speech.
+- Type or paste text into the designated input field.
+- Click on the 'Play' button to initiate text-to-speech conversion.
+- Listen as the written text is transformed into spoken words.
+- You can change the pitch, speed and volume values until you are comfortable. 
+- You can click the 'Pause' button to stop the speech and then click 'Resume' if you want to play where you left off.
+- The 'Stop' button will stop any more utterances.
+
+![Text-to-speech guide](https://github.com/deden3791/L4Project/blob/main/main/UserGuides/Images/TTS.gif)
+
 ### Logging in
+
+- Navigate to the profile icon in the header.
+- The pop up will know if you are logged in or not.
+- If not, you can click on the 'Sign in' button to sign in.
+- If you would like to sign out just click the 'Sign out' button.
+
+![Sign in guide](https://github.com/deden3791/L4Project/blob/main/main/UserGuides/Images/SignIn.gif)
 
 ### Saving Audio Playback Settings
 
