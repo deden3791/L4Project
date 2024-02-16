@@ -23,6 +23,7 @@ To begin using the web application, simply navigate to the provided URL in your 
 
 - By clicking on 'Start Microphone' the web-app will playback the audio from your surroundings.
 - You can adjust the settings by moving the sliders and changing the filter type  till you feel comfortable.
+- To stop at any point click 'Stop Microphone'.
 
 ![Audio guide](https://github.com/deden3791/L4Project/blob/main/main/UserGuides/Images/AudioAnalysis.gif)
 
