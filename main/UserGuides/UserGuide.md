@@ -19,6 +19,16 @@ To begin using the web application, simply navigate to the provided URL in your 
 
 ### Speech-to-text and Text-to-speech
 
+- Select a dialect you wish to be transcribed
+- Click on the 'Start Listening' button to activate speech recognition.
+- Speak clearly into your device's microphone.
+- Watch as your words are transcribed into text in real-time.
+- You can press play on the text-to-speech feature to have the transcribes words read back to you
+- You can change the inputs to a sound that you are comfortable with
+- You can also pick from a range of different voices
+
+![Speech-to-text guide](https://github.com/deden3791/L4Project/blob/main/main/UserGuides/Images/STT-TTS.gif)
+
 ### Audio Playback
 
 - By clicking on 'Start Microphone' the web-app will playback the audio from your surroundings.
