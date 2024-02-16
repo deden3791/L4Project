@@ -43,32 +43,31 @@ const UserProfile = () => {
 
   const renderMetadata = () => {
     const handleDeleteSave = (save: string) => {
-        if (window.confirm(`Are you sure you want to delete the save "${save}"?`)) {
-
-          const updatedMetadata = { ...user.unsafeMetadata };
-          const deletedMetadata = updatedMetadata[save];
-          delete updatedMetadata[save];
-    
-          user.update({unsafeMetadata: updatedMetadata });
-        }
+      if (window.confirm(`Are you sure you want to delete the save "${save}"?`)) {
+        const updatedMetadata = { ...user.unsafeMetadata };
+        const deletedMetadata = updatedMetadata[save];
+        delete updatedMetadata[save];
+        user.update({ unsafeMetadata: updatedMetadata });
+      }
     };
+  
     return (
-      <div className='container'>
-        <table>
-          <thead>
-            <tr>
-              <th className='small-text-light'>Name</th>
-              <th className='small-text-light'>Filter Type</th>
-              <th className='small-text-light'>Frequency (Hz)</th>
-              <th className='small-text-light'>Q</th>
-              <th className='small-text-light'>Gain</th>
-              <th className='small-text-light'>Trigger?</th>
-              <th className='small-text-light'>Delete</th>
-            </tr>
-          </thead>
-          <tbody>
-            {Object.entries(user.unsafeMetadata as UnsafeMetadata).map(
-              ([save, details]) => (
+      <div className='table-container'>
+        <div className='table-scroll'>
+          <table>
+            <thead>
+              <tr>
+                <th className='small-text-light'>Name</th>
+                <th className='small-text-light'>Filter Type</th>
+                <th className='small-text-light'>Frequency (Hz)</th>
+                <th className='small-text-light'>Q</th>
+                <th className='small-text-light'>Gain</th>
+                <th className='small-text-light'>Trigger?</th>
+                <th className='small-text-light'>Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              {Object.entries(user.unsafeMetadata as UnsafeMetadata).map(([save, details]) => (
                 <tr key={save}>
                   <td className='smaller-text'>{save}</td>
                   <td className='smaller-text'>{details.filterType}</td>
@@ -82,13 +81,13 @@ const UserProfile = () => {
                     </button>
                   </td>
                 </tr>
-              )
-            )}
-          </tbody>
-        </table>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     );
-  };
+  };  
 
   return (
     <div>

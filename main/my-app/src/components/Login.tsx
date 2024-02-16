@@ -19,17 +19,20 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
       <div className="popup-content">
         <button className='small-button' onClick={onClose}>Close</button>
         <br />
+        <br />
         <SignedOut>
-          <p className='small-text'>You are not signed in!</p>
+          <p className='big-text'>You are not signed in!</p>
           <SignInButton />
         </SignedOut>
         <SignedIn>
-          {(user ? <div className='small-text'>Hello {user.fullName}!</div> : null)}
+          {(user ? <div className='big-text'>Hello {user.fullName}!</div> : null)}
           <br />
-          <SignOutButton />
           <button className="big-button" type="button" onClick={handleClickUser}>
             Profile Page
           </button>
+          <br />
+          <br />
+          <SignOutButton />
         </SignedIn>
       </div>
     </div>
