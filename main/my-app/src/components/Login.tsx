@@ -19,12 +19,12 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
       <div className="popup-content">
         <button className='small-button' onClick={onClose}>Close</button>
         <br />
-        <br />
         <SignedOut>
           <p className='big-text'>You are not signed in!</p>
           <SignInButton />
         </SignedOut>
         <SignedIn>
+          <br />
           {(user ? <div className='big-text'>Hello {user.fullName}!</div> : null)}
           <br />
           <button className="big-button" type="button" onClick={handleClickUser}>
