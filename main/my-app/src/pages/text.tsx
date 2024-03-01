@@ -18,7 +18,7 @@ const TextPage = () => {
       width: '100%',
       padding: '2%',
       fontFamily: '"Gothic A1-Bold", Helvetica',
-      fontSize: textSize === 'small' ? '18px' : (textSize === 'medium' ? '22px' : '26px'),
+      fontSize: textSize === 'small' ? '24px' : (textSize === 'medium' ? '28px' : '34px'),
       fontWeight: '700',
       letterSpacing: '0',
       color: '#c49175',
@@ -27,7 +27,7 @@ const TextPage = () => {
 
   return (
     <div>
-      <p className='big-text'>Text-to-speech</p>
+      <p className='bigger-text'>Text-to-speech</p>
       <textarea
       value={textarea}
       placeholder='Enter text to start :)'
@@ -36,12 +36,12 @@ const TextPage = () => {
       />
       <br />
       <label className='big-text'>Text size:
-          <select value={textSize} onChange={(event) => setTextSize(event.target.value)} className="small-button">
-            <option value="small">Small</option>
-            <option value="medium">Medium</option>
-            <option value="large">Large</option>
-          </select>
-        </label>
+        <select value={textSize} onChange={(event) => setTextSize(event.target.value)} className="small-button">
+          <option value="small">Small</option>
+          <option value="medium">Medium</option>
+          <option value="large">Large</option>
+        </select>
+      </label>
 
       {textarea && <TextToSpeech text={textarea} />}
     </div>

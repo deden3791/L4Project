@@ -18,6 +18,10 @@ button {
   width: fit-content;
 }
 
+input {
+  margin-bottom: 8px;
+}
+
 .header {
   text-align: center;
   display: flex;
@@ -89,6 +93,7 @@ button {
 .pageBody .button-container {
   height: 30px;
   padding: 10px;  
+  margin-bottom: 5px;
 }
 
 .pageBody .big-button {
@@ -156,6 +161,7 @@ button {
   letter-spacing: 0;
   line-height: normal;
   color: #c49175;
+  margin-bottom: 10px;
 }
 
 .small-text-light {
@@ -259,6 +265,7 @@ input[type="range"] {
 
 .row {
   display: flex;
+  margin: 5px;
 }
 
 .row-items{
@@ -268,9 +275,28 @@ input[type="range"] {
 .column {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
+.horizontal-line {
+  border-top: 1px solid #c49175;
+  margin-top: 10px; 
+}
+
+.vertical-line {
+  border-left: 1px solid #c49175;
+  height: 200px;
+  margin: 0 20px;
+}
+
+
 @media only screen and (max-width: 600px) {
+  .horizontal-line,
+  .vertical-line {
+    display: none;
+  }
+
   .button-container {
     flex-direction: column;
     align-items: center;

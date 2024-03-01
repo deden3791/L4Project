@@ -98,7 +98,7 @@ const CaptionsPage = () => {
     width: '100%',
     padding: '2%',
     fontFamily: '"Gothic A1-Bold", Helvetica',
-    fontSize: textSize === 'small' ? '18px' : (textSize === 'medium' ? '22px' : '26px'),
+    fontSize: textSize === 'small' ? '24px' : (textSize === 'medium' ? '28px' : '34px'),
     fontWeight: '700',
     letterSpacing: '0',
     color: '#c49175',
@@ -116,8 +116,14 @@ const CaptionsPage = () => {
       SpeechRecognition.stopListening();
       setListening(false);
     } else {
-      SpeechRecognition.startListening({ continuous: true, language: selectedCountry });
-      setListening(true);
+      navigator.mediaDevices.getUserMedia({ audio: true })
+        .then(() => {
+          SpeechRecognition.startListening({ continuous: true, language: selectedCountry });
+          setListening(true);
+        })
+        .catch(error => {
+          console.error('Error accessing microphone:', error);
+        });
     }
   };
 
@@ -139,7 +145,7 @@ const CaptionsPage = () => {
 
   return (
     <div>
-      <p className='big-text'>Speech-to-text</p>
+      <p className='bigger-text'>Speech-to-text</p>
       <p className='small-text'>Listening: {listening ? 'on' : 'off'}</p>
       
       <textarea
@@ -149,13 +155,23 @@ const CaptionsPage = () => {
         style={textAreaStyle}
       />
 
-      <div className='row'>
-        <div className="button-container">
-          <button className="small-button" onClick={toggleListening}>
-            {listening ? 'Stop Listening' : 'Start Listening'}
-          </button>
-          <button className="small-button" onClick={resetTranscript}>Reset</button>
+      <div className='column'>
+        <div className='row'>
+          <div className="button-container">
+            <button className="small-button" onClick={toggleListening}>
+              {listening ? 'Stop Listening' : 'Start Listening'}
+            </button>
+            <button className="small-button" onClick={resetTranscript}>Reset</button>
+          </div>
+          <label className='big-text'>Text size:
+            <select value={textSize} onChange={(event) => setTextSize(event.target.value)} className="small-button">
+              <option value="small">Small</option>
+              <option value="medium">Medium</option>
+              <option value="large">Large</option>
+            </select>
+          </label>
         </div>
+
         <div className="row">
           <label className='big-text'>Language:
             <select value={selectedLanguage} onChange={handleLanguageChange} className="small-button">
@@ -176,8 +192,11 @@ const CaptionsPage = () => {
         </div>
       </div>
 
+      <div className="horizontal-line"></div>
+
       <div className='row'>
         <TextToSpeech text={transcript} />
+        <div className="vertical-line"></div>
         <AudioCapturePlayback text={transcript} />
       </div>
 

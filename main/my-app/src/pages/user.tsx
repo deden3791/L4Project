@@ -78,7 +78,7 @@ const UserProfile = () => {
                   <td className='smaller-text'>{details.trigger ? 'yes' : 'no'}</td>
                   <td>
                     <button className='small-button-dark' onClick={() => handleDeleteSave(save)}>
-                      DELETE SAVE
+                      DELETE
                     </button>
                   </td>
                 </tr>

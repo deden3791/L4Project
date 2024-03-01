@@ -16,7 +16,10 @@ const HomePage = () => {
     <div>
       <Header title="Earbud Controller" showBackButton={false} />
       <div className='pageBody'>
-        <ToggleSwitch defaultChecked={false} onChange={handleToggleChange} />
+        <div className='row'> 
+          <p className='big-text'>Change page: </p>
+          <ToggleSwitch defaultChecked={false} onChange={handleToggleChange} />
+        </div>
         {isTextPage ? <TextPage /> : <CaptionsPage />}
       </div>
     </div>
