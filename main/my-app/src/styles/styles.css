@@ -188,13 +188,15 @@ input {
   font-size: 22px;
   font-weight: 700; 
   color: #c49175;
+  margin: 5px;
 }
 
 .bigger-text {
   font-family: "Gothic A1-Bold", Helvetica;
-  font-size: 28px;
+  font-size: 30px;
   font-weight: 700; 
   color: #c49175;
+  margin: 10px;
 }
 
 .popup {
