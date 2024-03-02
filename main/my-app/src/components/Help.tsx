@@ -33,12 +33,24 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
               <td className='smaller-text'>Allows a range of frequencies centered around a cutoff frequency to pass through while attenuating frequencies outside that range.</td>
             </tr>
             <tr>
-              <td className='smaller-text'>Notch Filter</td>
-              <td className='smaller-text'>Attenuates a narrow band of frequencies centered around a specified frequency.</td>
+              <td className='smaller-text'>Low-shelf Filter</td>
+              <td className='smaller-text'>Boosts or attenuates frequencies below a certain frequency threshold, while leaving frequencies above it unchanged.</td>
+            </tr>
+            <tr>
+              <td className='smaller-text'>High-shelf Filter</td>
+              <td className='smaller-text'>Boosts or attenuates frequencies above a specific frequency threshold, while leaving frequencies below it unchanged.</td>
             </tr>
             <tr>
               <td className='smaller-text'>Peaking Filter</td>
               <td className='smaller-text'>Boosts or cuts a range of frequencies around a center frequency with adjustable bandwidth and gain.</td>
+            </tr>
+            <tr>
+              <td className='smaller-text'>Notch Filter</td>
+              <td className='smaller-text'>Attenuates a narrow band of frequencies centered around a specified frequency.</td>
+            </tr>
+            <tr>
+              <td className='smaller-text'>All-pass Filter</td>
+              <td className='smaller-text'>Allows all frequencies to pass through unchanged, but alters the phase relationship between them.</td>
             </tr>
           </tbody>
         </table>

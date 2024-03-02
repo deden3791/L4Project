@@ -170,8 +170,11 @@ const AudioCapturePlayback = ({ text }: AudioCapturePlaybackProps) => {
           <option value="lowpass">Low-pass</option>
           <option value="highpass">High-pass</option>
           <option value="bandpass">Band-pass</option>
-          <option value="notch">Notch</option>
+          <option value="lowshelf">Low-Shelf</option>
+          <option value="highshelf">High-Shelf</option>
           <option value="peaking">Peaking</option>
+          <option value="notch">Notch</option>
+          <option value="allpass">All-Pass</option>
         </select>
       </label>
       <br />
