@@ -10,8 +10,8 @@ The Web-App:
 - [User Guide](https://github.com/deden3791/L4Project/blob/main/main/UserGuides/UserGuide.md)
 
 Overall Project:
-- [Dissertation]()
-- [Presentation]()
+- [Dissertation](https://github.com/deden3791/L4Project/tree/main/dissertation)
+- [Presentation](https://github.com/deden3791/L4Project/tree/main/presentation)
 - [Meetings](https://dereksomerville.atlassian.net/l/cp/ChUvmdoq)
 - [Time Log]()
 - [Status Report](https://github.com/deden3791/L4Project/blob/main/dissertation/example_template/status_report/StatusReport.pdf)
