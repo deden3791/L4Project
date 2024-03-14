@@ -1,5 +1,8 @@
 ## Data
-Keep your data (e.g. from evaluations here)
+
+### Important Links
+
+- [Ethics Checklist](https://github.com/deden3791/L4Project/tree/main/dissertation/example_template/data/ethics/ethics-checklist.pdf)
 
 
 * If you involved human subjects in any form, you will require ethical permission.
