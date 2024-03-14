@@ -14,4 +14,4 @@ Overall Project:
 - [Presentation]()
 - [Meetings](https://dereksomerville.atlassian.net/l/cp/ChUvmdoq)
 - [Time Log]()
-- [Status Report]()
+- [Status Report](https://github.com/deden3791/L4Project/blob/main/dissertation/example_template/status_report/StatusReport.pdf)
