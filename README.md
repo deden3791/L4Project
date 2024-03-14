@@ -13,6 +13,7 @@ Overall Project:
 - [Dissertation](https://github.com/deden3791/L4Project/tree/main/dissertation)
 - [Presentation](https://github.com/deden3791/L4Project/tree/main/presentation)
 - [Meetings](https://dereksomerville.atlassian.net/l/cp/ChUvmdoq)
-- [Time Log]()
+- [Time Log](https://github.com/deden3791/L4Project/blob/main/timelog.md)
+- [Plan](https://github.com/deden3791/L4Project/blob/main/plan.md)
 - [Status Report](https://github.com/deden3791/L4Project/blob/main/dissertation/example_template/status_report/StatusReport.pdf)
 - [Issues Board](https://2514468e.atlassian.net/jira/software/projects/L4PROJ/boards/2?assignee=unassigned%2C712020%3A20a40eb5-8658-4008-946e-313a6884a146)
