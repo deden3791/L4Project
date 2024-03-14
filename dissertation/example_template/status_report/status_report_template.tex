@@ -14,55 +14,53 @@
 
 \section{Status report}
 
-\subsection{Proposal}\label{proposal}
+\subsection{Proposal}
 
-\subsubsection{Motivation}\label{motivation}
+\subsubsection{Motivation}
 
-\emph{{[}Clearly motivate the purpose of your project; why someone would
-care about what you are doing{]}}
+More than 430 million individuals, comprising over 5\% of the global population, need rehabilitation for their disabling hearing loss. By 2050, it’s projected that this number will surpass 700 million, affecting approximately one in every ten people worldwide. Currently, approximately 80\% of individuals with disabling hearing loss reside in countries classified as low- and middle-income \cite{Hapunda_2023}.
 
-\subsubsection{Aims}\label{aims}
+Numerous frameworks aim to advance the implementation of assistive technologies in low- and middleincome countries. For instance, the Global Cooperation on Assistive Technology highlights the significance of incentive product development through programs that encourage the creation of cost-effective assistive products, possibly involving undergraduates \cite{Tangcharoensathien2018-le}. Similarly, the United Nations Convention on the Rights of Persons with Disabilities (CRPD) \cite{United_Nations} provides an international framework dedicated to supporting implementation efforts and monitoring progress in assistive technology. Unfortunately, these crucial mandates have faced substantial neglect primarily due to inadequate financial backing, leading to minimal advancements in implementation \cite{00006479-201135010-00003}.
 
-\emph{{[}Clearly state what the project is intended to do. This should
-be something which is measurable; it should be possible to tell if you
-succeeded{]}}
+\subsubsection{Aims}
 
-\subsection{Progress}\label{progress}
+This project will develop an open-source assistive website application for deaf and hard-of-hearing users.This will be using the React framework to allow users to interact with several assistive features to serve as a multi-modal hearing aid. The project integrates various modes of assistance, combining different technologies to address the diverse needs of individuals with hearing impairments. By utilizing multiple modalities such as Bluetooth earbuds, edge computing, noise cancellation, speech-to-text conversion, and ML-based emergency notification features, the proposed product covers a spectrum of functionalities.
 
-\emph{{[}Briefly state your progress so far, as a bulleted list{]}}
+\ssubection{Progress}
 
-\subsection{Problems and risks}\label{problems-and-risks}
+Implemented React to develop a robust platform and successfully integrated the Web Speech API. Leveraging this integration, the project achieves amplification, speech-to-text, and text-to-speech functionalities. Text-to-speech features now offer pitch, volume, and voice alteration capabilities, enhancing the user experience.
 
-\subsubsection{Problems}\label{problems}
+Utilised insights from background research into the psychological impact of assistive technology on deaf and hard-of-hearing users to drive UI/UX development. The resulting interface is tailored to meet user needs, ensuring an intuitive and inclusive design. 
 
-\emph{{[}What problems have you had so far, that have held up the
-project?{]}}
+Conducted a comprehensive user study, garnering 46 responses. These responses were methodically analysed to derive insightful statistics, providing valuable data on user preferences, challenges, and perceptions. These provided useful to the fundraising application I wrote, to help get sponsors.
 
-\subsubsection{Risks}\label{risks}
+\subsection{Problems and Risks}
 
-\emph{{[}What problems do you foresee in the future and how will you
-mitigate them?{]}}
+\subsubsection{Problems}
 
-\subsection{Plan}\label{plan}
+This project has encountered several time constraints given the multitude of valuable features awaiting implementation. Determining the priority among these features remains unclear. While an amplification feature has been successfully integrated, the clarity of the audio remains a challenge. Additionally, there’s a struggle in deciding on the most suitable methods for incorporating machine learning features.
 
-\emph{{[}Time plan, in roughly weekly to monthly blocks, up until
-submission week{]}}
+\subsubsection{Risks}
 
-    
-\subsection{Ethics and data}\label{ethics}
-\emph{Specify what ethical approval you need to do your evaluation and how you are approaching it. This is mandatory. 
-Specify what data you expect to collect in your evaluation. Explain how this data will help you evaluate your project.
-}
+I’m facing ongoing challenges balancing the available time with the multitude of features I aim to implement. To streamline this, I need to conduct further research to identify and prioritise the most crucial features. Additionally, there might be an issue with the evaluation process, since it’s taking place in a care home where only one resident possesses a phone. To address this, I’ll need to ensure that my user guide is comprehensive and explore alternative options for an evaluation group.
 
-Options for ethics:
-\item This project does not involve human subjects or data. No approval required.
-\item I have verified that the ethics checklist will apply to any evaluation I need to do. I will sign and complete the checklist.
-\item I have sought ethical guidance from the School's ethics convener and I will:
+\subsection{Plan}
+
 \begin{itemize}
-    \item Proceed under specific instructions from the Ethics convener (e.g. modified checklist).
-    \item Apply for College Ethics Board approval.
-    \item Other procedure (give details)
-\end{itemize}    
+    \item Week 1-2: Improve clarity of audio playback. \textbf{Deliverable}: audio playback feature with clear audio for an effective hearing aid.
+    \item Week 3-5: Implement emergency siren and speaker detection. \textbf{Deliverable}: alert system with speaker’s voice voided from transcript.
+    \item Week 6: Research on how to best evaluate performance of final system. \textbf{Deliverable}: detailed evaluation plan, with participant numbers, information sheet and analysis plan.
+    \item Week 7-9: Final implementation and improvements in accordance to feedback from supervisor. \textbf{Deliverable}: polished and published software ready for users on GitHub, passing basic tests, ready for evaluation stage.
+    \item Week 9: Evaluation experiments undergo. \textbf{Deliverable}: quantitative measures of usability and qualitative measures of effectiveness for at least ten users.
+    \item Week 8-10: Write up. \textbf{Deliverable}: first draft submitted to supervisor two weeks before final deadline
+\end{itemize}
 
+\subsection{Ethics}
+
+This project has and will involve tests with human users. These will be user studies using standard hardware, and require no personally identifiable information to be captured. I have verified that the user study I sent out and the experiments I plan to do comply with the School of Computing Ethics Checklist.
+
+\bibliographystyle{abbrvnat}
+
+\bibliography{main}
 
 \end{document}
