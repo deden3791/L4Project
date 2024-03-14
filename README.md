@@ -15,3 +15,4 @@ Overall Project:
 - [Meetings](https://dereksomerville.atlassian.net/l/cp/ChUvmdoq)
 - [Time Log]()
 - [Status Report](https://github.com/deden3791/L4Project/blob/main/dissertation/example_template/status_report/StatusReport.pdf)
+- [Issues Board](https://2514468e.atlassian.net/jira/software/projects/L4PROJ/boards/2?assignee=unassigned&atlOrigin=eyJpIjoiNDRjYWNhN2YxZWUwNDBmMjg3MGYxM2UyNWI1Y2MwNTEiLCJwIjoiaiJ9)
