@@ -7,8 +7,11 @@
 The Web-App:
 - [The Assistive Web-App](https://deden3791.github.io/L4Project/)
 - [Repository](https://github.com/deden3791/L4Project/tree/main/main/my-app)
+- [User Guide](https://github.com/deden3791/L4Project/blob/main/main/UserGuides/UserGuide.md)
 
-Overall Project
+Overall Project:
 - [Dissertation]()
 - [Presentation]()
 - [Meetings](https://dereksomerville.atlassian.net/l/cp/ChUvmdoq)
+- [Time Log]()
+- [Status Report]()
