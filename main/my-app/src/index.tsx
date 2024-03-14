@@ -4,6 +4,9 @@ import './styles/styles.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ClerkProvider } from "@clerk/clerk-react";
+import 'regenerator-runtime/runtime';
+import '@babel/polyfill';
+
 
 const PUBLISHABLE_KEY = process.env.REACT_APP_PUBLISHABLE_KEY;
 
