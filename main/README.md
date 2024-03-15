@@ -2,9 +2,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Requirements:
+## Requirements:
 
 Node.js: Version 16 or higher.
+
+## How to run
 
 In the project directory `cd my-app`, you can run:
 
