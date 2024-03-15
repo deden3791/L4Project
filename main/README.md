@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Requirements:
+
+Node.js: Version 16 or higher.
+
 In the project directory `cd my-app`, you can run:
 
 ### `npm install`
