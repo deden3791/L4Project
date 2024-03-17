@@ -20,7 +20,7 @@ The evaluation intends to assess each feature against qualities such as:
 
 - Intuitivity: does each feature feel intuitive?
 - Accuracy: does each feature perform accurately?
-- Comfortability: does each feature feel comfortable to use?
+- Comfortable: does each feature feel comfortable to use?
 - Usability: is each feature usable?
 
 ### Data Gathering 
