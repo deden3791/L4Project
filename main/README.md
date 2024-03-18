@@ -19,11 +19,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 Or you can click [here](https://deden3791.github.io/L4Project/) to be taken to the live web-app, hosted on github pages. 
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 ## Learn More
 
 - [User guide](https://github.com/deden3791/L4Project/blob/main/main/UserGuides/UserGuide.md)
