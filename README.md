@@ -12,7 +12,7 @@ The Web-App:
 Overall Project:
 - [Dissertation](https://github.com/deden3791/L4Project/tree/main/dissertation)
 - [Presentation](https://github.com/deden3791/L4Project/tree/main/presentation)
-- [Meetings](https://dereksomerville.atlassian.net/l/cp/ChUvmdoq)
+- [Meetings]([https://dereksomerville.atlassian.net/l/cp/ChUvmdoq](https://github.com/deden3791/L4Project/blob/main/meeting-mins.pdf))
 - [Time Log](https://github.com/deden3791/L4Project/blob/main/timelog.md)
 - [Plan](https://github.com/deden3791/L4Project/blob/main/plan.md)
 - [Status Report](https://github.com/deden3791/L4Project/blob/main/status_report/StatusReport.pdf)
