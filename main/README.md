@@ -1,5 +1,7 @@
 # Assistive Web-App
 
+Please click [here](https://deden3791.github.io/L4Project/) to visit the web-app.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Requirements:
