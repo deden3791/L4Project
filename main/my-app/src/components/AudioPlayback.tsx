@@ -13,7 +13,7 @@ const AudioCapturePlayback = ({ text }: AudioCapturePlaybackProps) => {
   const [audioContext, setAudioContext] = useState<AudioContext | null>(null);
   const [microphoneSourceNode, setMicrophoneSourceNode] = useState<MediaStreamAudioSourceNode | null>(null);
   const [filterType, setFilterType] = useState<BiquadFilterType>('lowpass');
-  const [gain, setGain] = useState(1.0);
+  const [gain, setGain] = useState(0.0);
   const [QValue, setQValue] = useState(1.0);
   const [frequency, setFrequency] = useState(1000);
   const [filterNode, setFilterNode] = useState<BiquadFilterNode | null>(null);
@@ -193,37 +193,41 @@ const AudioCapturePlayback = ({ text }: AudioCapturePlaybackProps) => {
         <text>{inputValues.frequency === '' ? frequency : inputValues.frequency}</text>
       </label>
       <br />
-      <label className='small-text'>
-        Q:
-        <input
-          type="range"
-          id="Q"
-          name="Q"
-          min="0.1"
-          max="10"
-          step="0.1"
-          value={inputValues.Q === '' ? QValue : inputValues.Q}
-          onChange={handleQChange}
-        />
-        <text>{inputValues.Q === '' ? QValue : inputValues.Q}</text>
-      </label>
-      <br />
-      <label className='small-text'>
-        Gain:
-        <input
-          type="range"
-          id="gain"
-          name="gain"
-          min="0"
-          max="2"
-          step="0.1"
-          value={inputValues.gain === '' ? gain : inputValues.gain}
-          onChange={handleGainChange}
-        />
-        <text>{inputValues.gain === '' ? gain : inputValues.gain}</text>
-      </label>
+      {!['lowshelf', 'highshelf'].includes(filterType) && inputValues.Q !== undefined && (
+        <label className='small-text'>
+          Q:
+          <input
+            type="range"
+            id="Q"
+            name="Q"
+            min="0.1"
+            max="10"
+            step="0.1"
+            value={inputValues.Q === '' ? QValue : inputValues.Q}
+            onChange={handleQChange}
+          />
+          <text>{inputValues.Q === '' ? QValue : inputValues.Q}</text>
+          <br />
+        </label>
+      )}
+      {!['lowpass', 'highpass', 'bandpass', 'notch', 'allpass'].includes(filterType) && inputValues.gain !== undefined && (
+        <label className='small-text'>
+          Gain:
+          <input
+            type="range"
+            id="gain"
+            name="gain"
+            min="-2"
+            max="2"
+            step="0.1"
+            value={inputValues.gain === '' ? gain : inputValues.gain}
+            onChange={handleGainChange}
+          />
+          <text>{inputValues.gain === '' ? gain : inputValues.gain}</text>
+          <br />
+        </label>
+      )}
       <SignedIn>
-        <br />
         <label className='small-text'>
           Saved settings:
           <select

@@ -17,64 +17,67 @@ const Popup: React.FC<PopupProps> = ({ onClose }) => {
             <tr>
               <th className='small-text-light'>Filter Type</th>
               <th className='small-text-light'>Description</th>
+              <th className='small-text-light'>Frequency</th>
+              <th className='small-text-light'>Q</th>
+              <th className='small-text-light'>Gain</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td className='smaller-text'>Low-pass Filter</td>
-              <td className='smaller-text'>Allows frequencies below a specified cutoff frequency to pass through while attenuating frequencies above.</td>
+              <td className='smaller-text'>Low-pass</td>
+              <td className='smaller-text'>Standard second-order resonant lowpass filter with 12dB/octave rolloff. Frequencies below the cutoff pass through; frequencies above it are attenuated.</td>
+              <td className='smaller-text'>The cutoff frequency.</td>
+              <td className='smaller-text'>Indicates how peaked the frequency is around the cutoff. The greater the value is, the greater is the peak.</td>
+              <td className='smaller-text'>Not used</td>
             </tr>
             <tr>
-              <td className='smaller-text'>High-pass Filter</td>
-              <td className='smaller-text'>Allows frequencies above a specified cutoff frequency to pass through while attenuating frequencies below.</td>
+              <td className='smaller-text'>High-pass</td>
+              <td className='smaller-text'>Standard second-order resonant highpass filter with 12dB/octave rolloff. Frequencies below the cutoff are attenuated; frequencies above it pass through.</td>
+              <td className='smaller-text'>The cutoff frequency.</td>
+              <td className='smaller-text'>Indicates how peaked the frequency is around the cutoff. The greater the value, the greater the peak.</td>
+              <td className='smaller-text'>Not used</td>
             </tr>
             <tr>
-              <td className='smaller-text'>Band-pass Filter</td>
-              <td className='smaller-text'>Allows a range of frequencies centered around a cutoff frequency to pass through while attenuating frequencies outside that range.</td>
+              <td className='smaller-text'>Band-pass</td>
+              <td className='smaller-text'>Standard second-order bandpass filter. Frequencies outside the given range of frequencies are attenuated; the frequencies inside it pass through.</td>
+              <td className='smaller-text'>The center of the range of frequencies.</td>
+              <td className='smaller-text'>Controls the width of the frequency band. The greater the Q value, the smaller the frequency band.</td>
+              <td className='smaller-text'>Not used</td>
             </tr>
             <tr>
-              <td className='smaller-text'>Low-shelf Filter</td>
-              <td className='smaller-text'>Boosts or attenuates frequencies below a certain frequency threshold, while leaving frequencies above it unchanged.</td>
+              <td className='smaller-text'>Lowshelf</td>
+              <td className='smaller-text'>Standard second-order lowshelf filter. Frequencies lower than the frequency get a boost, or an attenuation; frequencies over it are unchanged.</td>
+              <td className='smaller-text'>The upper limit of the frequencies getting a boost or an attenuation.</td>
+              <td className='smaller-text'>Not used</td>
+              <td className='smaller-text'>The boost, in dB, to be applied; if negative, it will be an attenuation.</td>
             </tr>
             <tr>
-              <td className='smaller-text'>High-shelf Filter</td>
-              <td className='smaller-text'>Boosts or attenuates frequencies above a specific frequency threshold, while leaving frequencies below it unchanged.</td>
+              <td className='smaller-text'>Highshelf</td>
+              <td className='smaller-text'>Standard second-order highshelf filter. Frequencies higher than the frequency get a boost or an attenuation; frequencies lower than it are unchanged.</td>
+              <td className='smaller-text'>The lower limit of the frequencies getting a boost or an attenuation.</td>
+              <td className='smaller-text'>Not used</td>
+              <td className='smaller-text'>The boost, in dB, to be applied; if negative, it will be an attenuation.</td>
             </tr>
             <tr>
-              <td className='smaller-text'>Peaking Filter</td>
-              <td className='smaller-text'>Boosts or cuts a range of frequencies around a center frequency with adjustable bandwidth and gain.</td>
+              <td className='smaller-text'>Peaking</td>
+              <td className='smaller-text'>Frequencies inside the range get a boost or an attenuation; frequencies outside it are unchanged.</td>
+              <td className='smaller-text'>The middle of the frequency range getting a boost or an attenuation.</td>
+              <td className='smaller-text'>Controls the width of the frequency band. The greater the Q value, the smaller the frequency band.</td>
+              <td className='smaller-text'>The boost, in dB, to be applied; if negative, it will be an attenuation.</td>
             </tr>
             <tr>
-              <td className='smaller-text'>Notch Filter</td>
-              <td className='smaller-text'>Attenuates a narrow band of frequencies centered around a specified frequency.</td>
+              <td className='smaller-text'>Notch</td>
+              <td className='smaller-text'>Standard notch filter, also called a band-stop or band-rejection filter. It is the opposite of a bandpass filter: frequencies outside the given range of frequencies pass through; frequencies inside it are attenuated.</td>
+              <td className='smaller-text'>The center of the range of frequencies.</td>
+              <td className='smaller-text'>Controls the width of the frequency band. The greater the Q value, the smaller the frequency band.</td>
+              <td className='smaller-text'>Not used</td>
             </tr>
             <tr>
-              <td className='smaller-text'>All-pass Filter</td>
-              <td className='smaller-text'>Allows all frequencies to pass through unchanged, but alters the phase relationship between them.</td>
-            </tr>
-          </tbody>
-        </table>
-        <br />
-        <br />
-        <table>
-          <thead>
-            <tr>
-              <th className='small-text-light'>Adjusting Parameters</th>
-              <th className='small-text-light'>Description</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td className='smaller-text'>Frequency</td>
-              <td className='smaller-text'>Sets the cutoff or centre frequency of the filter.</td>
-            </tr>
-            <tr>
-              <td className='smaller-text'>Q Factor</td>
-              <td className='smaller-text'>Determines the width of the frequency band affected by the filter, affecting the resonance or sharpness of the filter's response.</td>
-            </tr>
-            <tr>
-              <td className='smaller-text'>Gain</td>
-              <td className='smaller-text'>Used in peaking and shelving filters to boost or attenuate specific frequency ranges.</td>
+              <td className='smaller-text'>Allpass</td>
+              <td className='smaller-text'>Standard second-order allpass filter. It lets all frequencies through, but changes the phase-relationship between the various frequencies.</td>
+              <td className='smaller-text'>The frequency with the maximal group delay, that is, the frequency where the center of the phase transition occurs.</td>
+              <td className='smaller-text'>Controls how sharp the transition is at the medium frequency. The larger this parameter is, the sharper and larger the transition will be.</td>
+              <td className='smaller-text'>Not used</td>
             </tr>
           </tbody>
         </table>

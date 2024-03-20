@@ -1,26 +1,184 @@
 # Timelog
 
-* PROJECT NAME
-* YOUR NAME
-* STUDENT_ID
-* SUPERVISOR NAME
+* Accessible Solutions: A Low-Cost Assistive Web App for Deaf and Hard-of-Hearing Users Utilising Web Speech API
+* Amy Eden
+* 2514468e
+* Derek Somerville
 
-## Guidance
-
-* This file contains the time log for your project. It will be submitted along with your final dissertation.
-* **YOU MUST KEEP THIS UP TO DATE AND UNDER VERSION CONTROL.**
-* This timelog should be filled out honestly, regularly (daily) and accurately. It is for *your* benefit.
-* Follow the structure provided, grouping time by weeks.  Quantise time to the half hour.
-
-## Week 1
-
-### 19 Oct 2019
-
-* *4 hours* Read the project guidance notes
-* *0.5 hour* Created GitLab repository and cloned the cookiecutter for the projects
-* *1 hour* Modified dissertation template, compiled  
-
-## 20 Oct 2019
-
-* *1 hour* meeting with supervisor
-* *2 hours* writing initial version of test harness
+- 18/09/2023
+    - [2 hours] first meeting with supervisor and made a start on research papers
+- 19/09/2023
+    - [3 hours] research papers
+    - [0.5 hours] figma for app design
+- 20/09/2023
+    - [2 hours] research papers
+- 21/09/2023
+    - [1 hour] looking into app development
+- 22/09/2023
+    - [3 hours] trying different app builds in react native using bluetooth LE
+- 23/09/2023
+    - [1 hour] trying another tutorial, but no progress (may need a mac to develop this in to iOS app)
+- 25/09/2023
+    - [1 hour] looking into speech recognition engines and APIs
+- 28/09/2023
+    - [0.5 mins] Mac approved, picked up and configured
+- 29/09/2023
+    - [2 hours] app development with Mac
+- 30/09/2023
+    - [3 hours] more research into ble app and found university program for apple developers
+- 02/10/2023
+    - [1 hour] research papers in obsidian
+    - [2 hours] live captioning web app using web speech API
+- 05/10/2023
+    - [2 hours] setting up github repository and integrating live captioning into react web app
+- 06/10/2023
+    - [2 hours] integrating text to speech with customisable pitch, volume and speed
+- 09/10/2023
+    - [2 hour] researching noise cancelling and recognising sirens
+- 10/10/2023
+    - [3 hours] created navigation between pages along with header
+- 11/10/2023
+    - [3 hours] research into UI for elderly
+- 12/10/2023
+    - [2 hours] figma prototype with UI research
+- 14/10/2023
+    - [3 hours] implementing UI from research
+- 17/10/2023
+    - [2 hours] fixing mic interrupt for text-to-speech
+- 26/10/2023
+    - [4 hours] having live audio output to headphones
+- 30/10/2023
+    - [4 hours] implemented volume, but struggling with pitch
+- 04/11/2023
+    - [3 hours] pitch shift research
+- 05/11/2023
+    - [1 hour] research on voice recognition
+- 07/11/2023
+    - [1 hour] user survey
+- 08/11/2023
+    - [2 hours] communicating with deaf and hard of hearing community about user survey
+    - [1 hour] emergency siren feature
+    - [2 hours] debugging app
+- 10/11/2023
+    - [1 hour] creating python script (online & offline)
+- 24/11/2023
+    - [2 hours] researching implementation of eagle speaker recognition
+- 25/11/2023
+    - [2 hours] research papers
+- 29/11/2023
+    - [3 hours] coding up statistics from user study
+- 30/11/2023
+    - [4 hours] formalised user study and sent to Derek for funds
+- 01/12/2023
+    - [2 hours] researching voice recognition
+- 03/12/2023
+    - [2 hours] implementing voice recognition (not implemented yet)
+- 05/12/2023
+    - [4 hours] researching papers
+- 09/12/2023
+    - [2 hours] researching papers
+- 13/12/2023
+    - [3 hours] status report
+- 17/12/2023
+    - [2 hours] researching papers
+    - [4 hours] motivation and project aims done
+- 20/12/2023
+    - [1 hour] new survey for evaluation attendance
+    - [1 hour] implementing voice recognition (not implemented yet)
+- 22/12/2023
+    - [2 hours] implementing audio api input fields for hearing aid feature
+- 03/01/2024
+    - [2 hours] researching papers
+- 04/01/2024
+    - [1 hour] implementing voice recognition (not implemented yet)
+- 05/01/2024
+    - [1 hour] researching papers
+- 06/01/2024
+    - [1 hour] implementing voice recognition (testing but still not working)
+    - [1 hour] researching papers
+- 08/01/2024
+    - [3 hours] researching papers and background section
+- 11/01/2024
+    - [6 hours] dissertation
+- 12/01/2024
+    - [3 hours] debugging voice recognition
+- 13/01/2024
+    - [2 hours] debugging voice recognition
+- 14/01/2024
+    - [1 hour] evaluation research
+- 17/01/2024
+    - [1 hour] web-app formatting
+- 18/01/2024
+    - [9 hours] login for app, save setting for audio playback
+- 19/01/2024
+    - [3 hours] feature → make a word a trigger for a setting
+    - [1 hour] deploying app
+    - [1 hour] documentation
+- 21/01/2024
+    - [3 hours] app work
+- 25/01/2024
+    - [3 hours] dissertation
+- 26/01/2024
+    - [3 hours] dissertation
+- 28/01/2024
+    - [0.5 hours] dissertation
+- 31/01/2024
+    - [2 hours] dissertation
+- 04/02/2024
+    - [2 hours] dissertation
+- 05/02/2024
+    - [2 hours] dissertation
+- 05/02/2024
+    - [2 hours] dissertation
+- 07/02/2024
+    - [2 hours] evaluation
+- 10/02/2024
+    - [3 hours] evaluation
+- 11/02/2024
+    - [2 hours] user guide
+- 14/02/2024
+    - [2 hours] dissertation
+- 15/02/2024
+    - [1 hour] evaluation
+- 17/02/2024
+    - [1 hours] sending out form for evaluation
+- 19/02/2024
+    - [2 hours] data analysis on previous surveys
+- 21/02/2024
+    - [0.5 hours] sending out form for evaluation
+- 27/02/2024
+    - [2 hours] improvements on web-app based on evaluation
+- 02/03/2024
+    - [3 hours] dissertation
+- 04/03/2024
+    - [2 hours] dissertation
+- 05/03/2024
+    - [3 hours] survey and evaluation analysis
+- 06/03/2024
+    - [1 hour] dissertation
+- 07/03/2024
+    - [1 hour] adding feedback to dissertation
+- 09/03/2024
+    - [1 hour] committing tests
+- 11/03/2024
+    - [6 hours] writing up evaluation
+- 12/03/2024
+    - [1 hour] writing up evaluation
+- 13/03/2024
+    - [2 hours] writing up conclusion
+    - [1 hour] sorting appendix
+- 14/03/2024
+    - [2 hours] cleaning up code base
+    - [0.5 hours] presentation
+- 15/03/2024
+    - [1 hour] reading over dissertation
+- 17/03/2024
+    - [3 hours] presentation
+- 18/03/2024
+    - [4 hours] dissertation finalised
+- 19/03/2024
+    - [2 hours] presentation
+- 20/03/2024
+    - [4 hours] presentation
+- 21/03/2024
+    - [3 hours] reading over dissertation and repo
