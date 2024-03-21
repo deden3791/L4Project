@@ -181,4 +181,4 @@
 - 20/03/2024
     - [4 hours] presentation
 - 21/03/2024
-    - [3 hours] reading over dissertation and repo
+    - [5 hours] reading over dissertation and repo
