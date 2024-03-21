@@ -3,6 +3,7 @@
 \documentclass{l4proj}
 
 \usepackage{enumerate}
+\usepackage{lscape}
 
 \begin{document}
 
@@ -344,7 +345,7 @@ This section details varied hearing loss categories and how the web app accommod
     \item Engages with text-to-speech for communication if uncomfortable with speech
 \end{itemize}
 
-\textbf{User with Profound Hearing Loss}
+\textbf{User with Profound Hearing Loss, who may be Non-Verbal}
 \begin{itemize}
     \item Utilises speech-to-text for captions
     \item Engages with text-to-speech for communication
@@ -386,7 +387,7 @@ This section details varied hearing loss categories and how the web app accommod
 
 Throughout the project's evolution, initial requirements aimed at real-time sound amplification, alongside edge computing for additional functionalities like user information management, speech recognition, and synthesis. However, as our research deepened and time constraints became apparent, we made strategic decisions to streamline our focus.
 
-We recognised the necessity to refine our objectives, prioritising core functionalities while leaving behind more ambitious features that could be taken forward in future projects. Consequently, we opted for a simplified approach, substituting real-time amplification with a more manageable frequency cutoff mechanism along-side gain and Q value adjustment, enabling users to manipulate sound waves effectively through their earbuds. Additionally, instead of delving into intricate edge computing processes, we simplified the architecture to incorporate essential elements through API calls.
+We recognised the necessity to refine our objectives, prioritising core functionalities while leaving behind more ambitious features that could be taken forward in future projects. Consequently, we opted for a simplified approach, substituting real-time amplification with a more manageable frequency cut-off mechanism along-side gain and Q value adjustment, enabling users to manipulate sound waves effectively through their earbuds. Additionally, instead of delving into intricate edge computing processes, we simplified the architecture to incorporate essential elements through API calls.
 
 By aligning our project goals with practical considerations, we ensure efficient resource utilisation and a more targeted development process. This strategic pivot allows us to deliver a robust solution within our constraints while maintaining a high standard of functionality and usability.
 
@@ -528,7 +529,7 @@ In aligning with the foundational principles of the User Experience Honeycomb \c
 
 \section{Chosen Technologies}
 
-Figma was chosen for wireframe development due to its versatile and collaborative features. This cloud-based design platform enables real-time collaboration, concurrent editing, and seamless transitions from wireframing to prototyping. Its accessibility through a web browser ensures cross-platform compatibility, aligning with the project's collaborative and user-centric ethos.
+Figma was chosen for wireframe development due to its versatile and collaborative features. This cloud-based design platform enables real-time collaboration, concurrent editing, and seamless transitions from wireframing to prototyping.
 
 React with TypeScript (TSX) has been chosen as the front-end framework for the development of this web application. Leveraging TypeScript's static typing ensures enhanced code quality and reduces the occurrence of runtime errors. The component-based architecture of React simplifies the process of user interface (UI) development, providing a dynamic and responsive user experience to fulfill the MH.3 requirement outlined in Section \ref{sec:req}. Utilising React provides us with the capability to fulfill SH.3, as the web-app is accessible on any device with a web browser. We even verified this functionality by successfully testing it on a Raspberry Pi.
 
@@ -536,11 +537,11 @@ Node.js serves as the selected back-end framework, responsible for handling serv
 
 The database system utilised for storing user preferences and relevant data is Clerk. This choice aligns with the project's requirements, offering robust capabilities for user authentication. Clerk's implementation ensures a secure and seamless user experience, addressing the authentication needs of the web application effectively.
 
-For audio processing, the project integrates two fundamental technologies: Web Speech API and Web Audio API. These APIs empower the web application with features such as speech-to-text, text-to-speech, and audio playback to fulfill the MH.1, MH.2, and MH.3 requirements aforementioned in Section \ref{sec:req}. The Web Speech API facilitates accurate and efficient speech recognition, while the Web Audio API enhances audio processing capabilities, ensuring a seamless and high-quality user experience.
+For audio processing, the project integrates two fundamental technologies: Web Speech API and Web Audio API. These APIs empower the web application with features such as speech-to-text, text-to-speech, and audio playback to fulfill the MH.1, MH.2, and MH.3 requirements respectively, as aforementioned in Section \ref{sec:req}. The Web Speech API facilitates accurate and efficient speech recognition, while the Web Audio API enhances audio processing capabilities, ensuring a seamless and high-quality user experience.
 
 Several security measures have been implemented to safeguard user data and uphold a secure user experience. The utilisation of HTTPS ensures encrypted data transmission, mitigating potential security risks with easedropping \citep{kroger2019my}. Additionally, Clerk's robust user authentication mechanisms contribute to the overall security posture of the web application.
 
-To establish the web application's public accessibility, the selection of an appropriate hosting platform was imperative. GitHub Pages emerged as the preferred choice due to its provision of free static website hosting, comparable to alternatives like Netlify, Cloudflare and Render, which were all contemplated during the project's planning phase. These platforms offer streamlined integration with Git version control, ensuring collaborative development and effective change tracking. GitHub Pages, integral to the GitHub ecosystem utilised for repository hosting, brings the advantage of seamless integration with other GitHub features, including issues and pull requests, streamlining the development workflow. Notably, GitHub Pages supports custom domain usage, enabling the utilisation of a personalised domain name for the website. Furthermore, GitHub fosters a sense of community where users can collaborate and leave feedback. This technology allows for the project to fulfill the CH.2 and CH.3 features outlines in Section \ref{sec:req}.
+To establish the web application's public accessibility, the selection of an appropriate hosting platform was imperative. GitHub Pages emerged as the preferred choice due to its provision of free static website hosting, comparable to alternatives like Netlify, Cloudflare and Render, which were all contemplated during the project's planning phase. These platforms offer streamlined integration with Git version control, ensuring collaborative development and effective change tracking. GitHub Pages, integral to the GitHub ecosystem utilised for repository hosting, brings the advantage of seamless integration with other GitHub features streamlining the development workflow. Although we did create a Jira board for managing issues \footnote{\url{https://www.atlassian.com/software/jira}}. Notably, GitHub Pages supports custom domain usage, enabling the utilisation of a personalised domain name for the website. Furthermore, GitHub fosters a sense of community where users can collaborate and leave feedback. This technology allows for the project to fulfill the CH.2 and CH.3 features outlines in Section \ref{sec:req}.
 
 During the course of this project, the WH.2 requirement outlined in Section \ref{sec:aims} was thoroughly researched and initial implementation efforts commenced utilising Picovoice Eagle \citep{PicovoiceWordmark}. Despite the availability of numerous examples for implementation, akin to web development practices, the model provided failed to function as expected. Subsequently, upon contacting the company to address a potential bug in the model, no response was received. Although this feature can potentially be a stepping stone for real-time captioning to distinguish between speakers, the priority of this feature was downgraded within the project's requirements priorities due to the bugs present. 
 
@@ -556,9 +557,9 @@ It is important to note that, throughout the project, I implemented verbal code 
 \subsection{Web Speech API}
 \label{sec:web-speech-API}
 
-Following our aims and requirements of the web-app in Sections \ref{sec:aims} and \ref{sec:req}, we identify Web Speech API to be the ideal method of providing precise and accurate speech recognition and speech synthesis. The Web Speech API empowers the integration of voice data into web applications, consisting of two primary components: SpeechSynthesis for Text-to-Speech capabilities and SpeechRecognition for Asynchronous Speech Recognition \citep{MozDevNet_2023}. 
+Following our aims and requirements of the web-app in Sections \ref{sec:aims} and \ref{sec:req}, we identify Web Speech API to be the ideal method of providing precise and accurate speech recognition and speech synthesis. The Web Speech API empowers the integration of voice data into web applications, consisting of two primary components:  SpeechRecognition for Speech-to-Text and SpeechSynthesis for Text-to-Speech \citep{MozDevNet_2023}. 
 
-The functionality of the Web Speech API's speech recognition involves capturing speech through a device's microphone. This input undergoes scrutiny by a speech recognition service against a predefined grammar list, essentially the vocabulary designated for recognition in a specific application. Upon successful recognition of a word or phrase, the result is returned in the form of a text string, triggering subsequent actions.
+The functionality of the Web Speech API's speech recognition involves capturing speech through a device's microphone to facilitate real-time conversion of spoken language into written text, offering precise and responsive speech-to-text capabilities within the web application. This input is streamlined through the SpeechRecognition interface, which interprets voice content from an audio input. The interface's constructor is utilised to instantiate a new SpeechRecognition object, equipped with diverse event handlers for detecting speech input from the device's microphone. Additionally, the SpeechGrammar interface serves as a container for a specific grammar set that the application should recognise, defined using JSpeech Grammar Format (JSGF). Essentially the vocabulary designated for recognition in a specific application. Upon successful recognition of a word or phrase, the result is returned in the form of a text string, triggering subsequent actions.
 
 \begin{figure}
     \centering
@@ -573,8 +574,6 @@ The functionality of the Web Speech API's speech recognition involves capturing 
     \caption{This screenshot displays the text-to-speech page of the web-app.}
     \label{fig:text-page} 
 \end{figure}
-
-This capability facilitates the real-time conversion of spoken language into written text, offering precise and responsive speech-to-text capabilities within the web application. Users can employ this feature for immediate captioning, enhancing effective communication. The access to speech recognition is streamlined through the SpeechRecognition interface, which interprets voice content from an audio input, usually through the device's default speech recognition service. The interface's constructor is utilised to instantiate a new SpeechRecognition object, equipped with diverse event handlers for detecting speech input from the device's microphone. Additionally, the SpeechGrammar interface serves as a container for a specific grammar set that the application should recognize, defined using JSpeech Grammar Format (JSGF).
 
 The Web Speech API seamlessly integrates speech synthesis, facilitating the conversion of text into spoken language. This essential functionality empowers the web application with text-to-speech capabilities, enabling users to receive clear, natural, and customisable auditory feedback, fostering vocal communication. The SpeechSynthesis interface acts as the primary controller for this feature, representing a text-to-speech component that enables programs to articulate their text content. This is achieved through the device's default speech synthesizer. Various voice options are captured by SpeechSynthesisVoice objects, while distinct sections of text designated for speech are encapsulated by SpeechSynthesisUtterance objects. The initiation of spoken output is carried out through the SpeechSynthesis.speak() method. Additionally, the API leverages the speech synthesis systems inherent in most operating systems, ensuring compatibility and optimal performance for this task. These speech recognition interfaces are utilised to create the captions page as seen in Figure \ref{fig:captions}. Along with these screenshots we can see Figure \ref{fig:phone} for each page on a mobile device.
 
@@ -599,7 +598,7 @@ The Web Speech API seamlessly integrates speech synthesis, facilitating the conv
     \label{fig:phone}
 \end{figure}
 
-One of the key advantages of leveraging the Web Speech API is its flexibility in customisation. The assistive web application incorporates user preferences for speech recognition and synthesis, allowing individuals to tailor the experience according to their specific needs. This includes adjustments in speech rate, pitch, and language selection utilising Web Audio API, contributing to a personalised and adaptive environment to achieve requirement SH.1 aforementioned in Section \ref{sec:req}. This is featured in the text-to-speech page seen in Figure \ref{fig:text-page} along with the speech synthesis methods displayed in Figure \ref{fig:voices}.
+One of the key advantages of leveraging the Web Speech API is its flexibility in customisation. The assistive web application incorporates user preferences for speech recognition and synthesis, allowing individuals to tailor the experience according to their specific needs. This includes adjustments in speech rate, pitch, and language selection utilising Web Audio API. This contributes to a personalised environment for users of all hearing loss to express their identity through communication, to achieve requirement SH.1 aforementioned in Section \ref{sec:req}. This is featured in the text-to-speech page seen in Figure \ref{fig:text-page} along with the speech synthesis methods displayed in Figure \ref{fig:voices}.
 
 Another key advantage of leveraging the Web Speech API is its extensive language support. This feature enables web applications to cater to a diverse audience by providing speech recognition and synthesis capabilities in a wide range of languages to satisfy the SH.5 requirement outlined in \ref{sec:req} as displayed in \ref{fig:languages}. Users can interact with the application using their preferred language, enhancing accessibility and inclusivity to achieve the PA2 outlined in \ref{sec:aims}. This multilingual support expands the reach of the web application to global users, fostering communication and engagement across different linguistic backgrounds, specifically those in countries classified as low- and moddle-income as aforementioned in Section \ref{sec:motivation}. Additionally, the ability to recognise and synthesise speech in various languages contributes to the versatility of the application, making it adaptable to different cultural contexts and user preferences. This comprehensive language support underscores the Web Speech API's efficacy in facilitating effective communication and interaction within web applications.
 
@@ -619,27 +618,7 @@ Another key advantage of leveraging the Web Speech API is its extensive language
     \label{fig:voices-languages} 
 \end{figure}
 
-A drawback of utilising this API is its dependency on an internet connection. Throughout this project, we explored a range of technologies, one of which was the Python library called vosk \citep{PyPI}. The code snippet for this library can be found in listing \ref{lst:vosk}, and we initially considered integrating it into the web application. However, the process of integrating Python into React proved to be cumbersome and ultimately not worthwhile due to the significant inaccuracies in the output generated by this method.
-
-% \begin{lstlisting}[language=python, float, caption={The speech  recognition library vosk demonstrating offline cababilities.}, label=lst:vosk]
-%     from vosk import Model, KaldiRecognizer
-%     import pyaudio
-    
-%     model = Model(r"vosk-model-small-en-us-0.15")
-%     recognizer = KaldiRecognizer(model, 16000)
-    
-%     mic = pyaudio.PyAudio()
-%     stream = mic.open(format=pyaudio.paInt16, channels=1, rate=16000, input=True, frames_per_buffer=8192)
-%     stream.start_stream()
-    
-%     while True:
-%         data = stream.read(4096)
-
-%     if recognizer.AcceptWaveform(data):
-%         text = recognizer.Result()
-%         print(f"' {text[14:-3]} '")
-
-% \end{lstlisting}
+A drawback of utilising this API is its dependency on an internet connection. Throughout this project, we explored a range of technologies, one of which was the Python library called vosk \citep{PyPI}. We initially considered integrating it into the web application. However, the process of integrating Python into React proved to be cumbersome and ultimately not worthwhile due to the significant inaccuracies in the output generated by this method.
 
 \subsection{Web Audio API}
 \label{sec:web-audio-API}
@@ -658,7 +637,7 @@ Once the audio has been appropriately modified, we designate the final destinati
 
 The BiquadFilterNode, established via the createBiquadFilter method within the BaseAudioContext, serves as a pivotal element of the Web Audio API. Functioning as an AudioNode, it embodies various filtering operations, basic tone control, and graphic equalisation. Crucially, each BiquadFilterNode maintains a uniform structure comprising a single input and output, ensuring consistency within audio processing configurations.
 
-With the implementation, users can effortlessly choose from various filter types, as displayed in Figure \ref{fig:filter-type}, using the Web Audio API. The user guide - on the web-app and GitHub - details how each variable influences sound output. Users can email the contact in the user guide to provide any feedback to satisfy the SH.2 requirement aforementioned in Section \ref{sec:req}. In signal processing, these filters serve distinct roles. A low-pass filter allows frequencies below a set cutoff, attenuating higher frequencies, while a high-pass filter does the opposite. The band-pass filter selectively allows a range of frequencies, and a notch filter attenuates a narrow band. Meanwhile, a peaking filter adjusts gain within a specific frequency range. Moreover, there are two more types: the all-pass filter, which allows all frequencies to pass through unchanged but alters their phase relationship, and the notch filter, which attenuates a narrow band of frequencies centered around a specified frequency \citep{MozDevNet_filters}. This versatile toolkit, integrated through the Web Audio API, proves essential for shaping signals in applications like audio processing and telecommunications. 
+With the implementation, users can effortlessly choose from various filter types, as displayed in Figure \ref{fig:filter-type}, using the Web Audio API. The user guide - on the web-app and GitHub - details how each variable influences sound output. Users can email the contact in the user guide to provide any feedback to satisfy the SH.2 requirement aforementioned in Section \ref{sec:req}. In signal processing, these filters serve distinct roles with different relationships to the frequency, Q, and gain values. For example, a low-pass filter allows frequencies below a set cutoff, attenuating higher frequencies, while a high-pass filter does the opposite. The band-pass filter selectively allows a range of frequencies, and a notch filter attenuates a narrow band. Meanwhile, a peaking filter adjusts gain within a specific frequency range. Moreover, there are two more types: the all-pass filter, which allows all frequencies to pass through unchanged but alters their phase relationship, and the notch filter, which attenuates a narrow band of frequencies centered around a specified frequency \citep{MozDevNet_filters}. This versatile toolkit, integrated through the Web Audio API, proves essential for shaping signals in applications like audio processing and telecommunications. See table \ref{tab:filters} for more information.
 
 \begin{figure}
     \centering
@@ -698,33 +677,35 @@ This versatility extends beyond authentication, aligning with our project's comm
 \chapter{User Study}
 \label{sec:user-study}
 
-To delve deeper into the perspectives of the Deaf and Hard of Hearing community regarding assistive technology, I conducted two surveys to fulfill the PA.4 requirement outlined in Section \ref{sec:aims}. The first survey aimed to gather insights into individuals' expenditure on assistive technology, their satisfaction levels with existing solutions, and introduced a new assistive web-app, inviting feedback on desired features and improvements. The second survey focused on assessing the overall usability of assistive technology, extending the evaluation to include the renowned System Usability Scale (SUS) \cite{SUS}. 
+To delve deeper into the perspectives of the Deaf and Hard of Hearing community regarding assistive technology, I conducted two surveys to fulfill the PA.4 requirement outlined in Section \ref{sec:aims}. The first survey aimed to gather insights into individuals' expenditure on assistive technology, their satisfaction levels with existing solutions, and introduced our project, inviting feedback on desired features and improvements. The second survey focused on assessing the overall usability of assistive technology, extending the evaluation to include the System Usability Scale (SUS) \cite{SUS}. 
 
-In this scale, prompts with positive connotations contribute to the score by subtracting one from the scale position, while prompts with negative connotations contribute by subtracting the scale position from 5. The sum of these scores is then multiplied by 2.5 to determine the overall value of SUS. Typically, the scale ranges from 0 to 100, but we included additional questions related to the project, which ranges from 0 to 150. We ensured to calculate the official System Usability Scale (SUS) using only the 10 questions outlined in the paper, while the modified SUS incorporates the entire survey.
+To calculate SUS, prompts with positive connotations contribute to the score by subtracting one from the scale position, while prompts with negative connotations contribute by subtracting the scale position from 5. The sum of these scores is then multiplied by 2.5 to determine the overall value of SUS. Typically, the scale ranges from 0 to 100, but we included additional questions related to the project, which ranges from 0 to 150. We ensured to calculate the official System Usability Scale (SUS) using only the 10 questions outlined in the paper; as well as our modified version.
 
-Throughout the engagement with the Deaf and Hard of Hearing community, it became evident that there's a prevailing sentiment of fatigue with researchers constantly approaching them for surveys. Many expressed feeling like they're treated as exhibits in a zoo, where researchers come in, conduct surveys, and leave without meaningful engagement or follow-up. It's crucial to acknowledge and respect these sentiments, recognising that Deaf individuals are not mere subjects for research but individuals with their own agency and perspectives. Referring to the outlined project aim PA.3 in Section \ref{sec:aims} we must take this perspective into consideration and question if this project is even needed in this society.
-
-These surveys aim to address the scarcity of research on new assistive technologies by directly involving the Deaf and Hard of Hearing community. By gathering feedback, we seek to ensure that new technologies meet the actual needs and preferences of users. This collaborative approach prioritizes inclusivity and moves away from traditional researcher-subject dynamics. Ultimately, our goal is to empower the community by amplifying their voices and perspectives in the development and evaluation of assistive technologies, creating solutions that are technologically advanced, accessible, and inclusive for all users.
+Throughout the engagement with the Deaf and Hard of Hearing community, it became evident that there's a prevailing sentiment of fatigue with researchers constantly approaching them for surveys. Many expressed feeling as through they are treated as exhibits in a zoo, where researchers come in, conduct surveys, and leave without meaningful engagement or follow-up. It's crucial to acknowledge and respect these sentiments, recognising that Deaf individuals are not mere subjects for research but individuals with their own agency and perspectives. Referring to the outlined project aim PA.3 in Section \ref{sec:aims} we must take this perspective into consideration and question if this project is even needed in this society.
 
 \section{Affordability and Satisfaction of Assistive Technology}
 \label{sec:afford-survey}
 
-This survey aims to gather information on Deaf and Hard-of-Hearing individuals' expenditure on assistive technology, their satisfaction levels with these technologies, and to introduce the new assistive web-app.
+This survey aims to gather information on Deaf and Hard-of-Hearing individuals' experiences with assistive technology, their satisfaction levels with these technologies, and to introduce the new assistive web-app.
 
-The survey received 47 responses, predominantly comprising individuals aged between 45 and 64. This reflects a notable demographic skew towards an older population. This demographic trend suggests a pertinent focus on the needs and preferences of middle-aged and older individuals regarding assistive technologies, as aforementioned in \ref{sec:design}, making it imperative to tailor the user interface and experience (UI/UX) of the web-app to cater to the needs and preferences of older individuals. Furthermore, the survey indicates a prevalent degree of hearing loss among respondents, with a substantial 66\% experiencing moderate hearing loss.
+The survey received 47 responses, predominantly comprising individuals aged between 45 and 64. This reflects a notable demographic skew towards an older population. This demographic trend suggests a focus on the needs and preferences of older individuals regarding assistive technologies. Particularly within the scope of the user interface and experience (UI/UX) of the web-app, as aforementioned in Section \ref{sec:design}. Furthermore, the survey indicates a prevalent degree of hearing loss among respondents, with a substantial 66\% experiencing moderate hearing loss.
 
-The survey reveals a widespread reliance on assistive technologies among respondents, with nearly half utilising hearing aids. Despite this widespread adoption, satisfaction levels vary across different assistive technologies. Notably, while 29.5\% express high satisfaction with hearing aids, 41.7\% report significantly less satisfaction with speech-to-text capabilities, with 75\% report even less satisfaction with text-to-speech capabilities. These varying satisfaction levels highlight the importance of understanding user preferences and expectations to enhance the effectiveness of assistive technologies.
+The survey reveals a widespread reliance on assistive technologies among respondents, with nearly half utilising hearing aids. Despite this widespread adoption, satisfaction levels vary across different assistive technologies. Notably, while the satisfaction levels within hearing aids are spread out, a majority expressed high satisfaction with hearing aids. These satisfaction levels drop, with a majority reported significantly less satisfaction with speech-to-text capabilities, and even less satisfaction with text-to-speech capabilities.
 
-A noteworthy finding from the survey pertains to the funding status of assistive technologies, with a slight majority of respondents receiving funding support. However, satisfaction levels differ between funded and non-funded individuals, with funded users expressing higher levels of satisfaction. Interestingly, while a considerable portion of respondents spend nothing on assistive technology, those who do report spending over £1,000 exhibit varying levels of satisfaction. These findings emphasise the complex interplay between funding, costs, and user satisfaction in the adoption and utilisation of assistive technologies.
+A noteworthy finding from the survey pertains to the funding status of assistive technologies, with a slight majority of respondents receiving funding support. However, satisfaction levels differ between funded and non-funded individuals, with funded users expressing higher levels of satisfaction. Interestingly, while a considerable portion of respondents spend nothing on assistive technology, those who do report spending over £1,000 exhibit varying levels of satisfaction.
 
-The survey delves into the diverse expectations of assistive technologies by users, including clear sound quality, accurate speech-to-text capabilities, ease of use, and customisation options. Respondents also express preferences for discounted pricing, long battery life, and compatibility with other devices. However, concerns regarding privacy, data security, and the effectiveness of proposed products in noisy environments are also apparent. While approximately 28\% of respondents find the proposed product useful, various suggestions and apprehensions highlight the importance of addressing user concerns and preferences in the development of assistive technologies. For instance, a participant proposed a feature for the web-app, suggesting the incorporation of an arrow indicating the direction from which sounds, and consequently speech, emanate. This would aid the user in identifying the speaker. Due to the project's defined scope, this feature was not implemented. However, it warrants consideration for future iterations of the web-app.
+The survey delves into the diverse expectations of assistive technologies by users, including clear sound quality, accurate speech-to-text capabilities, ease of use, and customisation options. Respondents also express preferences for discounted pricing, long battery life, and compatibility with other devices. However, concerns regarding privacy, data security, and the effectiveness of proposed products in noisy environments are also apparent. 
 
-In conclusion, the survey offers valuable insights into the usage patterns, satisfaction levels, and expectations regarding assistive technologies among individuals with hearing loss. These findings underscore the importance of user-centric design, cost considerations, and compatibility with existing technologies in the development and implementation of assistive solutions. By addressing user needs and concerns, developers and policymakers can ensure the creation of more effective and inclusive assistive technologies to enhance the quality of life for individuals with hearing loss.
+While approximately 28\% of respondents found the proposed product useful, various suggestions and apprehensions highlight the importance of addressing user concerns and preferences in the development of assistive technologies. For instance, a participant proposed a feature for the web-app, suggesting the incorporation of an arrow indicating the direction from which sounds, and consequently speech, emanate. This would aid the user in identifying the speaker. Due to the project's defined scope, this feature was not implemented. However, it warrants consideration for future iterations of the web-app.
+
+In conclusion, these findings emphasise the complex interplay between funding, costs, and user satisfaction in the adoption and utilisation of assistive technologies among individuals with hearing loss. These findings underscore the importance of user-centric design, cost considerations, and compatibility with existing technologies in the development and implementation of assistive solutions. By addressing user needs and concerns, developers and policymakers can ensure the development of more effective and inclusive assistive technologies to enhance the quality of life for individuals with hearing loss.
 
 \section{Usability of Assistive Technology}
 \label{sec:use-survey}
 
-This survey aims to gather information on individuals' thoughts on the usability of assistive technology by analysing broth quantitative and qualitative data. The survey garnered 24 responses, with the majority of participants being in the 35-44 age range, providing a broad perspective on the topic. A significant portion of participants reported profound hearing loss, highlighting the prevalence of severe impairment within the surveyed population. The average, modified System Usability Scale (SUS) score of 81.04, alongside an official SUS score of 59.69, indicates generally positive usability experiences with assistive technologies, suggesting room for improvement in specific areas. This data is visualised in Figure \ref{fig:survey-SUS}.
+This survey aims to gather information on individuals' thoughts on the usability of assistive technology by analysing both quantitative and qualitative data. 
+
+The survey garnered 24 responses, with the majority of participants being in the 35-44 age range, providing a broad perspective on the topic. A significant portion of participants reported profound hearing loss, highlighting the prevalence of severe impairment within the surveyed population. The average, modified System Usability Scale (SUS) score of 81.04, alongside an official SUS score of 59.69, indicates generally positive usability experiences with assistive technologies, suggesting room for improvement in specific areas. This data is visualised in Figure \ref{fig:survey-SUS}.
 
 \begin{figure}
     \centering
@@ -739,7 +720,7 @@ Issues with hearing aid functionality were also highlighted, including vulnerabi
 
 Despite advancements, current assistive technologies still face limitations, including reliance on Wi-Fi connectivity, challenges in noisy environments, and the need for a holistic communication approach beyond technology alone. Some respondents also highlighted the financial burden associated with acquiring assistive devices, emphasising the need for better accessibility and support programs to alleviate costs, which this project aims to do.
 
-Additionally, respondents emphasised the significance of accommodating Deaf individuals' language preferences and recognising the limitations of spoken language-centric technologies. One respondent articulated this sentiment by questioning why Deaf individuals should be expected to communicate in a second language, while hearing individuals often neglect to learn Deaf individual's first language. They challenged assumptions about Deaf people's desire to communicate in English and questioned the underlying assumption that solutions are needed to fix perceived problems. Instead, they highlighted that technology should serve to facilitate communication between hearing and Deaf individuals, rather than aiming to fix Deaf individuals themselves. This perspective sheds light on the concept of audism and underscores the importance of understanding and respecting Deaf culture and language.
+Additionally, respondents emphasised the significance of accommodating Deaf individuals' language preferences and recognising the limitations of spoken language-centric technologies. This is because the Deaf community does view English as their second language \citep{Morgan_2016}, with sign language being their first. One respondent articulated this sentiment by questioning why Deaf individuals should be expected to communicate in a second language, while hearing individuals often neglect to learn Deaf individual's first language. They challenged assumptions about Deaf people's desire to communicate in English and questioned the underlying assumption that solutions are needed to fix perceived problems. Instead, they highlighted that technology should serve to facilitate communication between hearing and Deaf individuals, rather than aiming to fix Deaf individuals themselves as a cultural model. This perspective sheds light on the concept of audism and underscores the importance of understanding and respecting Deaf culture and language.
 
 In summary, while there are positive aspects to current assistive technologies, there remain significant challenges and areas for improvement in usability, communication options, financial accessibility, and design considerations to better meet the diverse needs of users with hearing loss.
 
@@ -750,15 +731,15 @@ In summary, while there are positive aspects to current assistive technologies, 
 
 The aim of this project, as outlined in \ref{sec:aims}, is to evaluate a proof of concept for an affordable solution tailored to the needs of the Deaf and Hard-of-Hearing (DHH) community, leveraging the Web Speech API. By incorporating features described in Section \ref{sec:req}, the web application aims to foster inclusivity for individuals with various types of hearing loss. The primary objective is to provide cost-effective accessibility solutions while accommodating the diverse needs of the DHH community for the web-app to be usable. Furthermore, the project endeavours to create an open-source platform, enabling ongoing development and improvement beyond my own dissertation.
 
-Evaluating assistive technology (AT) involves assessing the extent to which ATs effectively enhance participation, address loss, and alleviate health-related limitations. In essence, it entails gauging the overall effectiveness and usefulness of assistive technologies \citep{tao2020evaluation}. This is why we chose to employ the System Usability Scale (SUS) \citep{SUS}, as we used in Section \ref{sec:user-study} to evaluate if requirement PA.4 outlined in Section \ref{sec:aims} has been achieved. Furthermore, leveraging the findings from the analysis conducted in Section \ref{sec:user-study}, we will undertake a comparative evaluation of the usability between the existing assistive technology and the newly introduced assistive web application. To evaluate the requirements outlined in Sections \ref{sec:UI} and \ref{sec:UX}, we expanded upon the original 10 System Usability Scale (SUS) statements, creating 17 statements while adhering to the same scoring methodology (i.e., subtracting one for positive statements and subtracting the score from 5 for negative statements). We will analyse the original SUS score along with our modified version. In addition to this both quantitative analysis, we also utilise the qualitative data for a deeper analysis.
+Evaluating assistive technology (AT) involves assessing the extent to which ATs effectively enhance participation, address loss, and alleviate health-related limitations. In essence, it entails gauging the overall effectiveness and usefulness of assistive technologies \citep{tao2020evaluation}. This is why we chose to employ the System Usability Scale (SUS) \citep{SUS}, as we used in Section \ref{sec:user-study} to evaluate if requirement PA.4 outlined in Section \ref{sec:aims} has been achieved. Furthermore, leveraging the findings from the analysis conducted in Section \ref{sec:user-study}, we will undertake a comparative evaluation of the usability between the existing assistive technology and the newly introduced assistive web application. To evaluate the requirements outlined in Sections \ref{sec:UI} and \ref{sec:UX}, we expanded upon the original 10 System Usability Scale (SUS) statements, creating 17 statements while adhering to the same scoring methodology (i.e., subtracting one for positive statements and subtracting the score from 5 for negative statements). We will analyse the original SUS score along with our modified version. In addition to te quantitative analysis, we also utilise the qualitative data for a deeper analysis.
 
 The assessment was distributed to individuals with and without hearing loss to complete 8 sections. Hearing individuals are encouraged to use noise-canceling earbuds or headphones, when testing the web-app. This is intended to provide a modest simulation to assess the effectiveness of the web-app.
 
 \section{Overview}
 
-Each participant was first encouraged to familiarise themselves with the app's interface before proceeding to the five sections, each containing a distinct task outlined in the provided user guide \footnote{\url{https://github.com/deden3791/L4Project/blob/main/main/UserGuides/UserGuide.md}}. Upon completion of each task, the participant is kindly asked to answer questions sharing their experience and feelings regarding the utilisation of the feature.
+First, we encouraged each participant to familiarise themselves with the web-app's interface before proceeding to the five sections, each containing a distinct task outlined in the provided user guide \footnote{\url{https://github.com/deden3791/L4Project/blob/main/main/UserGuides/UserGuide.md}}. Upon completion of each task, the participant is kindly asked to answer questions sharing their experience and feelings regarding the utilisation of the feature.
 
-The evaluation intends to assess each feature against qualities such as:
+The evaluation intends to assess each feature against qualities such as being:
 
 \begin{itemize}
     \item Intuitive: does each feature feel intuitive?
@@ -767,7 +748,7 @@ The evaluation intends to assess each feature against qualities such as:
     \item Usable: is each feature usable?
 \end{itemize}
 
-The evaluation received 17 responses, with the majority of participants falling within the 16-24 age range and exhibiting no signs of hearing loss. Nonetheless, Figures \ref{fig:ages} and \ref{fig:hearing} illustrates the distribution of ages and hearing loss among our participants, highlighting the diversity of the demographic. When analysing both the quantitative and qualitative data of the responses, we meticulously distinguish between the perspectives of the hearing and the Deaf and Hard-of-Hearing community.
+The evaluation received 17 responses, with  Figures \ref{fig:ages} and \ref{fig:hearing} illustrating the distribution of ages and hearing loss among our participants. When analysing both the quantitative and qualitative data of the responses, we meticulously distinguish between the perspectives of the hearing and the Deaf and Hard-of-Hearing community.
 
 \begin{figure}
     \centering
@@ -787,7 +768,7 @@ For each task, we utilised a Likert scale ranging from 'Strongly Agree' to 'Stro
 
 \section{Speech-to-text Feedback}
 
-For this task, the participants were asked to navigate to the speech-to-text section. They were then asked to click the "Start Listening" button to initiate the conversation to engage in verbal communication as desired. When the conversation is finished, click the "Stop Listening" button again to conclude the web-app's listening mode.
+For this task, the participants were asked to navigate to the speech-to-text section. They were then asked to select their preferred language and region. Once they were comfortable they were prompted to click the "Start Listening" button to initiate the conversation to engage in verbal communication as desired. Once the conversation had finished, they were to click the "Stop Listening" button to conclude the web-app's listening mode.
 
 Both hearing and non-hearing participants unanimously agreed that the speech-to-text feature felt intuitive, accurate, and comfortable, with the lowest average being 3.2 as seen in Figure \ref{fig:STT-chart} However, some participants pointed out certain limitations, such as the feature's occasional failure to recognise acronyms like 'LOL', often mistaking them for 'Hello'. Additionally, one participant reported compatibility issues with the 'Ark' browser, attributed to restrictions within the Web Speech API that render it suitable for specific browsers. Furthermore, a few participants observed minor inaccuracies in the transcription, attributing them to their strong Yorkshire accent. The persistent challenge posed by accent variations in speech recognition systems is a notable issue, as discussed in Section \ref{sec:speech-recog}, warranting further attention and awareness.
 
@@ -836,7 +817,7 @@ For this task, participants were directed to register by creating an account and
 
 All hearing participants unanimously agreed that both the features and save instances felt intuitive and comfortable, with both aspects receiving an approximate rating of 3.8 as depicted in Figure \ref{fig:ACC-chart}. However, when it came to account creation, the rating for intuitiveness decreased by approximately 0.3. In contrast, for Deaf and Hard-of-Hearing participants, these ratings were notably lower, with account creation being perceived as intuitive at 2.8. Similarly, for save instances, only 3.0 found them intuitive. Comfort ratings were also lower among Deaf and Hard-of-Hearing participants, with a rating of 2.8. One participant noted that having the save button change colour when it is a saved setting might inform the user that a change has been made. 
 
-Despite many positive responses regarding the trigger word feature for naming saves, it was observed that the accuracy of save names depended heavily on how the speech recognition system formatted words. For instance, one participant named a save "passthrough," but the system outputted the text as "pass through," leading to the trigger word not being detected. 
+Despite many positive responses regarding the trigger word feature for naming saves, it was observed that the accuracy of save names depended heavily on how the speech recognition system formatted words. For instance, one participant named a save "passthrough", but the system outputted the text as "pass through," leading to the trigger word not being detected. 
 
 \begin{figure}
     \centering
@@ -849,7 +830,7 @@ Despite many positive responses regarding the trigger word feature for naming sa
 
 In this task, participants were guided to explore another feature within the application by clicking the toggle button to access another, separate text-to-speech functionality. They were instructed to enter a set of text or sentences into the designated input field and ensure they were comfortable with the content. Subsequently, participants were prompted to activate the text-to-speech function by clicking the "Play" button and attentively listen to the synthesised speech output. They were encouraged to assess various aspects such as speech clarity, intonation, and overall satisfaction with the text-to-speech functionality.
 
-All hearing participants unanimously expressed strong agreement that the text-to-speech feature felt intuitive, garnering a maximum rating of 4.0. Additionally, they concurred that the feature felt natural, receiving a commendable rating of 3.7. However, among Deaf and Hard-of-Hearing participants, we observed lower ratings for the perceived intuitiveness, accuracy, and naturalness of the feature, all averaging at 3.4.
+All hearing participants unanimously expressed strong agreement that the text-to-speech feature felt intuitive, garnering a maximum rating of 4.0. Additionally, they concurred that the feature felt natural and comfortable, receiving a commendable rating of 3.7 and 3.8 respectively. However, among Deaf and Hard-of-Hearing participants, we observed lower ratings for the perceived intuitiveness, accuracy, and naturalness of the feature, all averaging at 3.4.
 
 Participants expressed the necessity of a save configuration option for the text-to-speech feature, as implemented for the playback feature. Additionally, some participants emphasised the need for a testing feature, enabling users to input a phrase for the system to repeat, facilitating adjustment of sliders for optimal settings. Along with these suggestions, participants reiterated their dissatisfaction with the choppiness of the voices. 
 
@@ -862,7 +843,7 @@ Participants expressed the necessity of a save configuration option for the text
 
 \section{Usability Feedback}
 
-As mentioned in Section \ref{sec:evaluation}, we modify the SUS to analyse if this web-app satisfies our project aims outlined in Section \ref{sec:aims}. Figure \ref{fig:eval} shows the distribution of modified SUS scores to assess the PA.4 project aim, separated into hearing and Deaf and Hard-of-Hearing individuals. For our Deaf and Hard-of-Hearing participants, we calculated an average, modified SUS score of 94.4, with a higher 132.5 from our hearing participants. This score is out of a potential 170.
+As mentioned in Section \ref{sec:evaluation}, we modify the SUS to analyse if this web-app satisfies our project aims outlined in Section \ref{sec:aims}. Figure \ref{fig:eval} shows the distribution of modified SUS scores to assess the PA.4 project aim, separated into hearing and Deaf and Hard-of-Hearing individuals. For our Deaf and Hard-of-Hearing participants, we calculated an average, modified SUS score of 94.4 out of a potential 170, with a higher 132.5 from our hearing participants. 
 
 \begin{figure}
     \centering
@@ -879,7 +860,7 @@ As mentioned in Section \ref{sec:evaluation}, we modify the SUS to analyse if th
 \end{figure}
 
 
-To assess whether the outlined requirements have been fulfilled, we employ a scoring system similar to the calculate of the System Usability Scale (SUS), ranging from 0 to 4. For a detailed mapping of questions to requirements, please refer to the appendix (Section \ref{sec:apendix}), tables \ref{tab:UI-table} and \ref{tab:UX-table}. For an outline of the scores for overall, hearing and Deaf participants, please refer to Figure \ref{fig:questions}. When analysing the scores given by hearing participants and Deaf and Hard-of-Hearing participants, there exists an average deviation of 0.373 with a maximum deviation of 1.0. While this deviation may not be considered exceptionally large, it should still be deemed significant when justifying if this web-app will be effective to the Deaf and Hard-of-Hearing community.
+To assess whether the outlined requirements have been fulfilled, we employ a scoring system similar to the calculate of the System Usability Scale (SUS), ranging from 0 to 4. For a detailed mapping of questions to requirements, please refer tables \ref{tab:UI-table} and \ref{tab:UX-table}. For an outline of the scores for overall, hearing and Deaf participants, please refer to Figure \ref{fig:questions}. When analysing the scores given by hearing participants and Deaf and Hard-of-Hearing participants, we calculated a standard deviation of 0.3. While this may not be considered exceptionally large, it should still be deemed significant when justifying if this web-app will be effective to the Deaf and Hard-of-Hearing community.
 
 % \begin{figure}
 %     \centering
@@ -888,11 +869,11 @@ To assess whether the outlined requirements have been fulfilled, we employ a sco
 %     \label{fig:comp-survey} 
 % \end{figure}
 
-As previously stated, each of the requirements outlined in Sections \ref{sec:UI} and \ref{sec:UX} is associated with the statements given in the evaluation. To analyse if these requirements were fulfilled, we took the average score for each statement and averaged the statements associated with that requirements, as shown in Figure \ref{fig:requirements}. The average deviation between hearing and Deaf and Hard-of-Hearing participants is calculated as 0.411, with a maximum deviation of 1. Again, while this deviation may not be considered exceptionally large, it should still be deemed significant when justifying if these requirements are fulfilled.
+As previously stated, each of the requirements outlined in Sections \ref{sec:UI} and \ref{sec:UX} is associated with the statements given in the evaluation. To analyse if these requirements were fulfilled, we took the average score for each statement and averaged the statements associated with that requirement, as shown in Figure \ref{fig:requirements}. The average deviation between hearing and Deaf and Hard-of-Hearing participants is calculated as 0.4, with a maximum deviation of 1. Again, while this deviation may not be considered exceptionally large, it should still be deemed significant when justifying if these requirements are fulfilled.
 
-Upon examining the individual requirements, we found that each received a rating equal to or greater than 2.75 with an average of 3.12, indicating that all requirements were met to some extent. Notably, requirements UX.6 and UI.6, which pertain to error communication and user guides, respectively, emerged as areas in need of enhancement. Some participants encountered difficulties with the user guide, prompting us to revise it to provide clearer explanations of the system, thereby fostering better user understanding. The requirement with the highest rating was UI.2, reflecting the web-app's consistency. This positive feedback underscores the effectiveness of maintaining uniformity throughout the user interface, contributing to a smoother user experience
+Upon examining the individual requirements, we found that each received a rating equal to or greater than 2.75, with an average of 3.12 and a standard deviation of 0.2, indicating that all requirements were met to some extent. Notably, requirements UX.6 and UI.6, which pertain to error communication and user guides, respectively, emerged as areas in need of enhancement. Some participants encountered difficulties with the user guide, prompting us to revise it to provide clearer explanations of the system, thereby fostering better user understanding. The requirement with the highest rating was UI.2, reflecting the web-app's consistency. This positive feedback underscores the effectiveness of maintaining uniformity throughout the user interface, contributing to a smoother user experience.
 
-After removing our additional 7 statements and including only the original 10 SUS statements, we calculated an average SUS score of 75.6 from our hearing participants, with a slightly lower average SUS score of 70 from our Deaf and Hard-of-Hearing participants, as shown in Figure \ref{fig:eval-SUS}. Although this deviation of 5.6 isn't notably large, it does signify some areas for improvement in the web-app.
+After removing our additional 7 statements and including only the original 10 SUS statements, we calculated an average SUS score of 75.6 from our hearing participants, with a slightly lower average SUS score of 70 from our Deaf and Hard-of-Hearing participants. Although this deviation of 5.6 isn't notably large, it does signify some areas for improvement in the web-app.
 
 \begin{figure}
     \centering
@@ -944,13 +925,13 @@ Although this project did delve into the Deaf and Hard-of-Hearing community for 
 %  APPENDICES  
 
 \begin{appendices}
-
+\pagestyle{plain}
 \chapter{Appendices}
 \label{sec:apendix}
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
-    \includegraphics[width=0.75\linewidth]{dissertation/images/afford-survey-1.jpeg}    
+    \includegraphics[width=0.60\linewidth]{dissertation/images/afford-survey-1.jpeg}    
     \caption{This screenshots for the responses to the survey outlined in Section \ref{sec:afford-survey}.}
     \label{fig:afford-survey-1} 
 \end{figure}
@@ -975,6 +956,24 @@ Although this project did delve into the Deaf and Hard-of-Hearing community for 
     \caption{This screenshots for the responses to the survey outlined in Section \ref{sec:afford-survey}.}
     \label{fig:afford-survey-4} 
 \end{figure}
+
+\begin{landscape}
+\begin{table}[htbp]
+    \caption{This table shows the relations between filter type, frequency, Q value and gain in Web Audio API.}\label{tab:filters}
+    \rowcolors{2}{}{gray!3}
+    \begin{tabular}{p{3cm}p{6cm}p{4cm}p{4cm}p{4cm}}
+    \textbf{Filter Type} & \textbf{Description} & \textbf{Frequency} & \textbf{Q} & \textbf{Gain} \\ 
+    Low-pass & Standard second-order resonant lowpass filter with 12dB/octave rolloff. Frequencies below the cutoff pass through; frequencies above it are attenuated. & The cutoff frequency. & Indicates how peaked the frequency is around the cutoff. The greater the value is, the greater is the peak. & Not used \\ 
+    High-pass & Standard second-order resonant highpass filter with 12dB/octave rolloff. Frequencies below the cutoff are attenuated; frequencies above it pass through. & The cutoff frequency. & Indicates how peaked the frequency is around the cutoff. The greater the value, the greater the peak. & Not used \\ 
+    Band-pass & Standard second-order bandpass filter. Frequencies outside the given range of frequencies are attenuated; the frequencies inside it pass through. & The center of the range of frequencies. & Controls the width of the frequency band. The greater the Q value, the smaller the frequency band. & Not used \\ 
+    Lowshelf & Standard second-order lowshelf filter. Frequencies lower than the frequency get a boost, or an attenuation; frequencies over it are unchanged. & The upper limit of the frequencies getting a boost or an attenuation. & Not used & The boost, in dB, to be applied; if negative, it will be an attenuation. \\ 
+    Highshelf & Standard second-order highshelf filter. Frequencies higher than the frequency get a boost or an attenuation; frequencies lower than it are unchanged. & The lower limit of the frequencies getting a boost or an attenuation. & Not used & The boost, in dB, to be applied; if negative, it will be an attenuation. \\ 
+    Peaking & Frequencies inside the range get a boost or an attenuation; frequencies outside it are unchanged. & The middle of the frequency range getting a boost or an attenuation. & Controls the width of the frequency band. The greater the Q value, the smaller the frequency band. & The boost, in dB, to be applied; if negative, it will be an attenuation. \\ 
+    Notch & Standard notch filter, also called a band-stop or band-rejection filter. It is the opposite of a bandpass filter: frequencies outside the give range of frequencies pass through; frequencies inside it are attenuated. & The center of the range of frequencies. & Controls the width of the frequency band. The greater the Q value, the smaller the frequency band. & Not used \\ 
+    Allpass & Standard second-order allpass filter. It lets all frequencies through, but changes the phase-relationship between the various frequencies. & The frequency with the maximal group delay, that is, the frequency where the center of the phase transition occurs. & Controls how sharp the transition is at the medium frequency. The larger this parameter is, the sharper and larger the transition will be. & Not used \\ 
+    \end{tabular}
+\end{table}
+\end{landscape}
 
 \begin{figure}[H]
     \centering
